@@ -1,0 +1,2624 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아이파크몰 정보보안 규정 및 법령 포털</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Pretendard Font -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+
+  <style>
+    * {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    }
+    :root {
+      --ipark-red: #E51937;
+      --ipark-red-hover: #c90f2b;
+      --ipark-red-light: #fff1f2;
+    }
+    /* 커스텀 스크롤바 */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f8fafc;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #e2e8f0;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #cbd5e1;
+    }
+    .chat-bubble-ai {
+      background-color: #ffffff;
+      border: 1px solid #f1f5f9;
+      border-radius: 0.75rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+    .chat-bubble-user {
+      background-color: #E51937;
+      color: #ffffff;
+      border-radius: 0.75rem;
+    }
+    .cat-answer-section {
+      background: #ffffff;
+      padding: 1.25rem 1.5rem;
+      border-radius: 0.85rem;
+      margin-top: 1rem;
+      border: 1px solid #f1f5f9;
+      border-left-width: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      transition: all 0.2s ease;
+    }
+    .cat-answer-section:hover {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.06);
+    }
+    .cat-tag-policy { 
+      border-left-color: #E51937; 
+      background-color: #fffafb;
+    }
+    .cat-tag-pipa { 
+      border-left-color: #059669; 
+      background-color: #f6fbf9;
+    }
+    .cat-tag-network { 
+      border-left-color: #d97706; 
+      background-color: #fffbf5;
+    }
+
+    /* 조항별 개별 카드 및 항목 구분 스타일 */
+    .article-result-card {
+      background: #ffffff;
+      border: 1px solid #f1f5f9;
+      border-radius: 0.65rem;
+      padding: 1rem 1.15rem;
+      margin-bottom: 0.85rem;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    }
+    .article-result-card:last-child {
+      margin-bottom: 0;
+    }
+    .clause-item-line {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-top: 0.4rem;
+      line-height: 1.65;
+    }
+
+    /* 종합 권고사항 항목별 카드 및 줄바꿈 전용 스타일 */
+    .action-item-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #E51937;
+      border-radius: 0.65rem;
+      padding: 0.85rem 1.15rem;
+      margin-bottom: 0.65rem;
+      line-height: 1.65;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    }
+    .action-item-card:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-800 h-screen flex flex-col overflow-hidden antialiased">
+
+  <!-- ==================== 상단 네비게이션 헤더 ==================== -->
+  <header class="bg-white text-slate-800 border-b border-slate-200/90 px-4 py-2.5 shrink-0 flex items-center justify-between shadow-xs z-30">
+    <div class="flex items-center gap-3">
+      <!-- 모바일 사이드바 토글 버튼 -->
+      <button id="mobileSidebarToggle" type="button" class="lg:hidden p-2 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-100 transition-colors" title="문서 목록 열기">
+        <i class="fa-solid fa-bars text-lg"></i>
+      </button>
+
+      <!-- [CI 로고 버튼 : 클릭 시 리프레시] -->
+      <button 
+        type="button" 
+        id="companyLogoBtn" 
+        onclick="window.location.reload();" 
+        class="flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-red-500 rounded-lg p-1 transition-all shrink-0"
+        title="홈으로 가기 (페이지 새로고침)"
+      >
+        <!-- 첨부된 HDC 심볼 마크 (좌측 직사각형 + 우측 상/하단 부채꼴 라운드) 및 로고 텍스트 -->
+        <div class="flex items-center gap-2 py-0.5 px-1 bg-white rounded-md shrink-0">
+          <svg class="h-6 sm:h-7 w-auto block group-hover:scale-105 transition-transform" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- 좌측 세로 직사각형 바 -->
+            <rect x="2" y="2" width="13" height="32" rx="0.8" fill="#E51937" />
+            <!-- 우측 상단 1/4 원호 (부채꼴) 형태 블록 -->
+            <path d="M19 2H32V11C32 11 25.5 11 19 4.8V2Z" fill="#E51937" />
+            <!-- 우측 하단 1/4 원호 (부채꼴) 형태 블록 -->
+            <path d="M19 19C26.5 19 32 24.5 32 32V34H19V19Z" fill="#E51937" />
+          </svg>
+          <span class="text-base sm:text-lg font-black tracking-tight text-slate-900 group-hover:text-red-600 transition-colors font-sans">
+            IPARK<span class="font-extrabold text-sm sm:text-base ml-0.5">몰</span>
+          </span>
+        </div>
+
+        <div class="h-5 w-px bg-slate-200 hidden sm:block"></div>
+
+        
+          <h1 class="text-xs md:text-sm font-bold tracking-tight text-slate-900 group-hover:text-red-600 transition-colors">
+            정보보안정책 · 개인정보보호법령 · 정보통신망법 AI 도우미
+          </h1>
+        </div>
+      </button>
+    </div>
+
+    <!-- 우측 정보 담당자 및 배지 안내 -->
+    <div class="flex items-center gap-3">
+      <!-- [신규 등록 버튼] -->
+      <button 
+        type="button" 
+        id="openNewDocModalBtn" 
+        class="flex items-center gap-1.5 px-3 py-1.5 bg-red-600 hover:bg-red-700 active:bg-red-800 text-white rounded-lg text-xs font-bold transition-all shadow-xs shrink-0 cursor-pointer"
+        title="신규 정책 및 법규 문서 등록"
+      >
+        <i class="fa-solid fa-plus text-[11px]"></i>
+        <span>신규 문서 등록</span>
+      </button>
+
+      <div class="hidden sm:flex items-center gap-2 bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200 text-xs text-slate-600">
+        <i class="fa-solid fa-headset text-red-500"></i>
+        <span>정보보안센터 : <strong class="text-slate-900 font-semibold">양신현 차장 (02-2012-0063)</strong></span>
+      </div>
+      <div class="flex items-center gap-1.5 text-xs bg-red-50 border border-red-200/80 text-red-600 px-2.5 py-1.5 rounded-lg font-semibold">
+        <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+        <span>최신 조문 전문 반영</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== 메인 워크스페이스 ==================== -->
+  <main class="flex-1 flex overflow-hidden relative bg-white">
+
+    <!-- [좌측 영역 : 사이드바 + 문서 상세 뷰어] -->
+    <section class="flex-1 flex overflow-hidden w-full lg:w-[68%] xl:w-[72%] border-r border-slate-200 bg-white">
+      
+      <!-- 사이드바 -->
+      <aside id="docSidebar" class="w-72 sm:w-80 border-r border-slate-200 bg-slate-50/70 flex flex-col shrink-0 absolute lg:relative z-20 h-full transition-transform duration-300 -translate-x-full lg:translate-x-0 shadow-lg lg:shadow-none">
+        
+        <!-- 검색 및 상위 대분류 탭 -->
+        <div class="p-3 border-b border-slate-200 bg-white space-y-2.5 shrink-0">
+          <div class="relative">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-400 text-xs"></i>
+            <input 
+              type="text" 
+              id="searchDocInput" 
+              placeholder="규정명, 법률명, 조문 내용 검색..." 
+              class="w-full pl-8 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:bg-white transition-all text-slate-800 placeholder-slate-400"
+            />
+          </div>
+
+          <!-- 신규 등록 보조 버튼 (사이드바) -->
+          <button 
+            type="button" 
+            id="sidebarNewDocBtn" 
+            class="w-full py-1.5 px-3 bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition-colors"
+          >
+            <i class="fa-solid fa-file-circle-plus text-red-600"></i>
+            <span>신규 정책/법규 추가하기</span>
+          </button>
+
+          <!-- [1차 대분류 탭]: 정보보안정책 / 개인정보보호법·령 / 정보통신망법 -->
+          <div class="grid grid-cols-3 gap-1 p-0.5 bg-slate-100 rounded-lg text-[11px] font-bold text-slate-600">
+            <button type="button" data-main-cat="security_policy" class="main-cat-btn py-1.5 rounded-md text-center transition-all bg-white text-red-600 shadow-xs">정보보안정책</button>
+            <button type="button" data-main-cat="privacy_act" class="main-cat-btn py-1.5 rounded-md text-center transition-all hover:text-slate-900">개인정보보호법·령</button>
+            <button type="button" data-main-cat="network_act" class="main-cat-btn py-1.5 rounded-md text-center transition-all hover:text-slate-900">정보통신망법</button>
+          </div>
+
+          <!-- [2차 서브 카테고리]: 정보보안정책 선택 시에만 표시 -->
+          <div id="subCatContainer" class="grid grid-cols-4 gap-1 p-0.5 bg-slate-100/80 rounded-lg text-[11px] font-semibold text-slate-600">
+            <button type="button" data-cat="all" class="cat-filter-btn py-1 rounded-md text-center transition-all bg-white text-red-600 shadow-xs">전체</button>
+            <button type="button" data-cat="policy" class="cat-filter-btn py-1 rounded-md text-center transition-all hover:text-slate-900">정책</button>
+            <button type="button" data-cat="guideline" class="cat-filter-btn py-1 rounded-md text-center transition-all hover:text-slate-900">지침</button>
+            <button type="button" data-cat="manual" class="cat-filter-btn py-1 rounded-md text-center transition-all hover:text-slate-900">매뉴얼</button>
+          </div>
+        </div>
+
+        <!-- 문서 목록 리스트 -->
+        <div class="flex-1 overflow-y-auto p-2 space-y-3" id="docListContainer"></div>
+
+        <!-- 하단 정보창 -->
+        <div class="p-3 bg-white border-t border-slate-200 text-[11px] text-slate-500 flex items-center justify-between shrink-0">
+          <span id="docCountBadge" class="font-bold text-slate-700">총 19건 문서</span>
+          <button id="resetListBtn" type="button" class="text-red-600 hover:text-red-800 font-semibold flex items-center gap-1 transition-colors">
+            <i class="fa-solid fa-arrows-rotate text-[10px]"></i>
+            <span>필터 초기화</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- 모바일 사이드바 오버레이 -->
+      <div id="mobileSidebarOverlay" class="fixed inset-0 bg-slate-900/40 z-10 lg:hidden hidden backdrop-blur-2xs transition-opacity"></div>
+
+      <!-- 우측 메인 영역 : 문서 상세 뷰어 -->
+      <div class="flex-1 flex flex-col h-full overflow-hidden bg-white">
+        
+        <!-- 문서 메타 정보 배너 -->
+        <div class="px-6 py-4 border-b border-slate-200 bg-white shrink-0">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+            <div class="flex items-center gap-2">
+              <span id="previewCategoryBadge" class="px-2 py-0.5 rounded text-[11px] font-bold bg-red-50 text-red-600 border border-red-200">
+                정보보호 정책
+              </span>
+              <span id="previewDocNo" class="font-mono text-xs font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+                HIM-SEC-POL-001
+              </span>
+              <span id="previewRev" class="text-xs font-semibold text-slate-500">
+                Rev.0
+              </span>
+            </div>
+            
+            <button id="copyDocSummaryBtn" type="button" class="text-xs bg-white hover:bg-slate-50 text-slate-700 px-2.5 py-1 rounded-lg border border-slate-200 transition-colors flex items-center gap-1 shadow-2xs font-medium">
+              <i class="fa-regular fa-copy text-slate-500"></i>
+              <span>개요 복사</span>
+            </button>
+          </div>
+
+          <h2 id="previewTitle" class="text-lg md:text-xl font-bold text-slate-900 tracking-tight">
+            정보보호정책
+          </h2>
+          <p id="previewSummary" class="text-xs text-slate-600 mt-1 leading-relaxed">
+            에이치디씨아이파크몰의 정보보호 기본 방침, CISO 및 경영진의 지원 원칙, 정보자산 관리의 최상위 원칙 선언문.
+          </p>
+
+          <!-- 결재자 메타 정보 그리드 -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-3 pt-3 border-t border-slate-100 text-[11px] text-slate-500">
+            <div>
+              <span class="block text-slate-400">작성 / 주관</span>
+              <span id="previewAuthor" class="font-medium text-slate-700">양신현 (IT기획)</span>
+            </div>
+            <div>
+              <span class="block text-slate-400">검토자</span>
+              <span id="previewReviewer" class="font-medium text-slate-700">이건상 (팀장)</span>
+            </div>
+            <div>
+              <span class="block text-slate-400">승인자(CISO/CEO)</span>
+              <span id="previewApprover" class="font-medium text-slate-700">김대수 (CEO)</span>
+            </div>
+            <div>
+              <span class="block text-slate-400">시행일자</span>
+              <span id="previewDate" class="font-medium text-slate-700">2026. 02. 02</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 조문 텍스트 전문 헤더 컨트롤러 -->
+        <div class="px-6 py-2.5 bg-slate-50/70 border-b border-slate-200 flex flex-wrap items-center justify-between gap-3 shrink-0">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold bg-red-50 text-red-600 px-2.5 py-1 rounded-md border border-red-200/80 flex items-center gap-1.5">
+              <i class="fa-solid fa-scroll text-red-500"></i> 조문 텍스트 전문 (100% 원문 일괄 표시)
+            </span>
+            <div class="text-[11px] text-slate-500 shrink-0 font-medium" id="clauseCount">
+              로딩 중...
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <a id="openDriveExternalLink" href="#" target="_blank" rel="noopener noreferrer" class="text-xs bg-white hover:bg-slate-100 text-slate-700 px-2.5 py-1 rounded-lg border border-slate-200 transition-colors flex items-center gap-1 font-medium shadow-2xs">
+              <i class="fa-brands fa-google-drive text-amber-500"></i>
+              <span>드라이브에서 열기</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 챕터 바로가기 네비게이션 바 -->
+        <div id="textChapterBar" class="px-6 py-2 bg-white border-b border-slate-200 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+          <div class="flex items-center gap-1.5 overflow-x-auto py-0.5 no-scrollbar" id="chapterTabsContainer"></div>
+        </div>
+
+        <!-- 조문 텍스트 전문 표시 컨테이너 -->
+        <div class="flex-1 overflow-y-auto p-6 space-y-4 bg-slate-50/30" id="previewArticlesContainer"></div>
+      </div>
+    </section>
+
+    <!-- [우측 영역 : AI 지침 상담 전용 챗봇 패널] -->
+    <section class="hidden md:flex flex-col w-full md:w-[32%] xl:w-[28%] bg-white h-full border-l border-slate-200">
+      
+      <!-- 챗봇 상단 헤더 (화이트 & 레드 포인트) -->
+      <div class="px-4 py-3 border-b border-slate-200 bg-white text-slate-800 flex items-center justify-between shrink-0 shadow-2xs">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-red-600 flex items-center justify-center text-white shadow-xs">
+            <i class="fa-solid fa-robot text-sm"></i>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-1.5">
+              <span>보안 규정 AI 어시스턴트</span>
+              <span class="w-2 h-2 rounded-full bg-red-500"></span>
+            </h3>
+            <p class="text-[10px] text-slate-400">사내 15종 규정 · 개인정보보호법령 · 정보통신망법</p>
+          </div>
+        </div>
+        <button id="clearChatBtn" type="button" class="text-slate-400 hover:text-slate-600 text-xs px-2 py-1 rounded hover:bg-slate-100 transition-colors" title="대화 내용 지우기">
+          <i class="fa-solid fa-arrow-rotate-right"></i>
+        </button>
+      </div>
+
+      <!-- 챗 메시지 대화 로그 영역 -->
+      <div id="chatMessages" class="flex-1 overflow-y-auto p-3.5 space-y-3 bg-slate-50/40 text-xs">
+        <div class="flex gap-2.5 items-start">
+          <div class="w-6 h-6 rounded-full bg-red-600 text-white flex items-center justify-center shrink-0 text-[10px] mt-0.5">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <div class="chat-bubble-ai p-3.5 shadow-2xs text-slate-800 leading-relaxed max-w-[92%] space-y-2 border border-slate-200/80">
+            <p class="font-bold text-slate-900 flex items-center gap-1.5 text-xs">
+              <i class="fa-solid fa-layer-group text-red-600"></i>
+              <span>통합 정보보안 AI 상담 어시스턴트입니다.</span>
+            </p>
+            <p class="text-slate-600 leading-normal">
+              질문하신 내용은 <strong>① HDC아이파크몰 사내 보안정책/지침</strong>, <strong>② 개인정보보호법 및 시행령</strong>, <strong>③ 정보통신망법 및 시행령</strong> 3대 데이터베이스를 동시 검색하여 각 카테고리별로 나누어 명확히 설명해 드립니다.
+            </p>
+            <div class="pt-2 border-t border-slate-100 text-[11px] text-slate-600 bg-red-50/60 p-2.5 rounded-lg border border-red-100">
+              💡 <strong>규정 확인 또는 실무 예외 승인 문의:</strong><br>
+              <span class="text-red-700 font-bold">• 정보보안센터 양신현 차장 02-2012-0063</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 챗봇 입력창 영역 -->
+      <div class="p-3 bg-white border-t border-slate-200 shrink-0">
+        <form id="chatForm" class="space-y-2">
+          <div class="relative">
+            <textarea 
+              id="chatInput" 
+              rows="2" 
+              placeholder="보안 규정 및 법령에 대해 무엇이든 질문하세요..." 
+              class="w-full p-2.5 pr-16 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:bg-white resize-none text-slate-800 leading-relaxed transition-all"
+            ></textarea>
+            <button 
+              type="submit" 
+              id="sendBtn"
+              class="absolute right-2 bottom-2.5 px-3 py-1.5 bg-red-600 hover:bg-red-700 active:bg-red-800 text-white text-xs font-semibold rounded-lg transition-colors flex items-center gap-1 shadow-xs"
+            >
+              <span>전송</span>
+              <i class="fa-solid fa-paper-plane text-[10px]"></i>
+            </button>
+          </div>
+          <div class="flex items-center justify-between text-[10px] text-slate-400 px-1">
+            <span>Shift + Enter: 줄바꿈 / Enter: 전송</span>
+            <span class="text-red-600 font-medium">Gemini 3 Flash 구동 중</span>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- 토스트 알림 메시지 컴포넌트 -->
+  <div id="toastNotification" class="fixed bottom-5 right-5 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-slate-900 text-white px-4 py-2.5 rounded-xl text-xs font-medium shadow-xl flex items-center gap-2 border border-slate-700">
+    <i class="fa-solid fa-circle-check text-emerald-400"></i>
+    <span id="toastMessage">알림 내용</span>
+  </div>
+
+  <!-- ==================== 신규 정책 및 법규 등록 모달 ==================== -->
+  <div id="newDocModal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-900/60 backdrop-blur-xs hidden transition-all duration-200">
+    <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 w-full max-w-4xl max-h-[92vh] flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- 모달 헤더 -->
+      <div class="px-6 py-4 bg-white border-b border-slate-200 flex items-center justify-between shrink-0">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-red-600 text-white flex items-center justify-center shadow-md">
+            <i class="fa-solid fa-file-circle-plus text-lg"></i>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-slate-900 tracking-tight">신규 보안정책 및 법규 등록</h3>
+            <p class="text-xs text-slate-500">파일 첨부 또는 텍스트 입력 시 모든 조항이 자동으로 파싱되어 상세 페이지에 즉각 반영됩니다.</p>
+          </div>
+        </div>
+        <button id="closeNewDocModalBtn" type="button" class="w-9 h-9 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition-colors">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <!-- 모달 본문 폼 스크롤 영역 -->
+      <div class="flex-1 overflow-y-auto px-6 py-5 space-y-4 text-xs">
+        <form id="newDocForm" class="space-y-4">
+          
+          <!-- 1. 분류 선택 그리드 -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">대분류 구분 <span class="text-red-500">*</span></label>
+              <select id="modalMainCat" class="w-full p-2 bg-slate-50 border border-slate-200 rounded-lg text-xs font-medium focus:ring-2 focus:ring-red-500 focus:bg-white outline-none">
+                <option value="security_policy">사내 정보보안정책</option>
+                <option value="privacy_act">개인정보보호법·령</option>
+                <option value="network_act">정보통신망법</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">세부 유형 <span class="text-red-500">*</span></label>
+              <select id="modalSubCat" class="w-full p-2 bg-slate-50 border border-slate-200 rounded-lg text-xs font-medium focus:ring-2 focus:ring-red-500 focus:bg-white outline-none">
+                <option value="policy">최상위 정책</option>
+                <option value="guideline" selected>보안 지침</option>
+                <option value="manual">실무 매뉴얼</option>
+                <option value="law">법률</option>
+                <option value="enforcement">시행령 / 규정</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- 2. 문서 식별 정보 -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="sm:col-span-2">
+              <label class="block font-bold text-slate-700 mb-1">문서 제목 / 법령명 <span class="text-red-500">*</span></label>
+              <input type="text" id="modalDocTitle" required placeholder="예: 인공지능(AI) 활용 보안지침" class="w-full p-2 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-red-500 focus:bg-white outline-none">
+            </div>
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">문서 번호 <span class="text-red-500">*</span></label>
+              <input type="text" id="modalDocNo" required placeholder="예: HIM-SEC-GUI-015" class="w-full p-2 bg-slate-50 border border-slate-200 rounded-lg text-xs font-mono focus:ring-2 focus:ring-red-500 focus:bg-white outline-none">
+            </div>
+          </div>
+
+          <!-- 3. 메타 정보 (작성/검토/승인/개정) -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200">
+            <div>
+              <label class="block text-[11px] text-slate-500 mb-1">작성/주관부서</label>
+              <input type="text" id="modalAuthor" value="양신현 (IT기획)" class="w-full p-1.5 bg-white border border-slate-200 rounded text-xs outline-none focus:border-red-500">
+            </div>
+            <div>
+              <label class="block text-[11px] text-slate-500 mb-1">검토자</label>
+              <input type="text" id="modalReviewer" value="이건상 (팀장)" class="w-full p-1.5 bg-white border border-slate-200 rounded text-xs outline-none focus:border-red-500">
+            </div>
+            <div>
+              <label class="block text-[11px] text-slate-500 mb-1">승인자(CISO/CEO)</label>
+              <input type="text" id="modalApprover" value="이춘성 (CISO)" class="w-full p-1.5 bg-white border border-slate-200 rounded text-xs outline-none focus:border-red-500">
+            </div>
+            <div>
+              <label class="block text-[11px] text-slate-500 mb-1">개정번호 / 시행일자</label>
+              <input type="text" id="modalRevision" value="Rev.0 (2026. 11. 11)" class="w-full p-1.5 bg-white border border-slate-200 rounded text-xs outline-none focus:border-red-500">
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">문서 개요 및 목적</label>
+            <textarea id="modalSummary" rows="2" placeholder="문서의 핵심 취지와 통제 요약을 간략히 기재하세요." class="w-full p-2 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-red-500 focus:bg-white outline-none"></textarea>
+          </div>
+
+          <!-- 4. 파일 첨부 영역 (한글 인코딩 방지 및 자동 안내) -->
+          <div class="border-2 border-dashed border-slate-300 hover:border-red-400 rounded-xl p-4 transition-colors bg-slate-50/50">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-red-100 text-red-600 flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-cloud-arrow-up text-base"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-800">문서 파일 첨부 (.txt, .md, .json)</h4>
+                  <p class="text-[11px] text-slate-500">UTF-8 및 EUC-KR(ANSI) 인코딩을 자동으로 감지하여 한글 깨짐을 방지합니다.</p>
+                </div>
+              </div>
+              <label class="px-3 py-1.5 bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 rounded-lg font-bold text-xs cursor-pointer shadow-2xs shrink-0 text-center transition-all">
+                <span>파일 찾아보기</span>
+                <input type="file" id="modalFileInput" accept=".txt,.md,.json,.csv" class="hidden">
+              </label>
+            </div>
+
+            <!-- 바이너리 파일 안내 박스 -->
+            <div class="mt-2.5 p-2 bg-amber-50 border border-amber-200 rounded-lg text-[11px] text-amber-800 flex items-start gap-2">
+              <i class="fa-solid fa-triangle-exclamation text-amber-600 mt-0.5 shrink-0"></i>
+              <span><strong>Word(.docx), 한글(.hwp), PDF</strong> 등 바이너리 오피스 파일은 글자가 깨질 수 있으므로, 문서를 열어 <strong>내용 전체를 복사(Ctrl+C)</strong>한 후 아래 <strong>본문 입력란에 붙여넣기(Ctrl+V)</strong>하시면 모든 조항이 깔끔하게 등록됩니다.</span>
+            </div>
+          </div>
+
+          <!-- 5. 조문 본문 직접 입력 및 자동 파싱 영역 -->
+          <div>
+            <div class="flex items-center justify-between mb-1">
+              <label class="font-bold text-slate-700">문서 본문 전문 (조문 텍스트) <span class="text-red-500">*</span></label>
+              <span id="parsedArticlesCount" class="text-[11px] text-red-600 font-bold">감지된 조항: 0개</span>
+            </div>
+            <textarea 
+              id="modalDocContent" 
+              required 
+              rows="9" 
+              placeholder="문서의 전체 내용을 여기에 붙여넣으세요.
+'제1장 총칙', '제1조(목적)', '제2조(정의)' 형식의 조문이 자동으로 식별되어 각각의 조항 카드로 등록됩니다.
+
+[예시]
+제1장 총칙
+제1조(목적) 이 지침은 생성형 AI 서비스 활용 시 회사의 정보자산을 보호함을 목적으로 한다.
+제2조(적용범위) 전 임직원 및 외주 협력사 인력에 적용한다.
+
+제2장 AI 이용 보안
+제3조(비공개 정보 입력 금지) 소스코드, 고객 개인정보, 미공개 재무제표 입력을 엄격히 금지한다." 
+              class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs font-mono focus:ring-2 focus:ring-red-500 focus:bg-white outline-none leading-relaxed"
+            ></textarea>
+          </div>
+        </form>
+      </div>
+
+      <!-- 모달 푸터 -->
+      <div class="px-6 py-3.5 bg-slate-50 border-t border-slate-200 flex items-center justify-between shrink-0">
+        <span class="text-[11px] text-slate-500">등록 시 상세 페이지 및 AI 챗봇 데이터베이스에 즉시 동기화됩니다.</span>
+        <div class="flex items-center gap-2">
+          <button id="cancelNewDocBtn" type="button" class="px-4 py-2 bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 rounded-xl text-xs font-semibold transition-all">
+            취소
+          </button>
+          <button id="submitNewDocBtn" type="button" class="px-5 py-2 bg-red-600 hover:bg-red-700 active:bg-red-800 text-white rounded-xl text-xs font-bold transition-all shadow-xs flex items-center gap-1.5">
+            <i class="fa-solid fa-check text-[11px]"></i>
+            <span>등록 및 즉시 반영</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== AI 질의 답변 결과 팝업 모달 ==================== -->
+  <div id="aiResultModal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 lg:p-7 bg-slate-900/60 backdrop-blur-xs hidden transition-all duration-200">
+    <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 w-full max-w-5xl max-h-[90vh] flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200 ring-1 ring-black/5">
+      
+      <!-- 팝업 헤더 (화이트 & 레드 포인트 배색) -->
+      <div class="px-6 py-4 bg-white text-slate-900 flex items-center justify-between shrink-0 border-b border-slate-200 shadow-2xs">
+        <div class="flex items-center gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center text-white shadow-md ring-2 ring-red-400/20">
+            <i class="fa-solid fa-layer-group text-lg"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-0.5">
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-red-50 text-red-600 border border-red-200">
+                통합 법령 & 사내 규정 심층 분석
+              </span>
+              <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                <i class="fa-solid fa-sparkles text-amber-500"></i> Gemini 3 Flash 검토
+              </span>
+            </div>
+            <h3 id="modalQuestionTitle" class="text-sm md:text-base font-bold text-slate-900 tracking-tight line-clamp-1 max-w-2xl">
+              질문 내용
+            </h3>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="printModalBtn" type="button" class="p-2 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors" title="인쇄하기">
+            <i class="fa-solid fa-print text-sm"></i>
+          </button>
+          <button id="closeAiModalBtn" type="button" class="w-9 h-9 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition-colors" title="닫기">
+            <i class="fa-solid fa-xmark text-lg"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- 상단 카테고리 인디케이터 바 -->
+      <div class="px-6 py-2 bg-slate-50 border-b border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs shrink-0">
+        <div class="flex items-center gap-2">
+          <span class="text-slate-500 font-medium">분석 카테고리 :</span>
+          <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md font-semibold bg-red-50 text-red-700 border border-red-200">
+            <span class="w-1.5 h-1.5 rounded-full bg-red-600"></span>사내 보안정책
+          </span>
+          <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>개인정보보호법령
+          </span>
+          <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span>정보통신망법
+          </span>
+        </div>
+        <div class="text-[11px] text-slate-500 flex items-center gap-1">
+          <i class="fa-solid fa-circle-info text-red-500"></i>
+          <span>실무 예외승인 및 법률 적용 판단 시 보안센터에 문의하세요</span>
+        </div>
+      </div>
+
+      <!-- 팝업 본문 (와이드 스크롤 뷰) -->
+      <div id="aiModalContent" class="flex-1 overflow-y-auto px-6 py-5 space-y-4 text-xs md:text-sm text-slate-800 leading-relaxed bg-white">
+        <!-- AI 응답 포맷 렌더링 영역 -->
+      </div>
+
+      <!-- 팝업 푸터 컨트롤러 -->
+      <div class="px-6 py-3.5 bg-white border-t border-slate-200 flex flex-wrap items-center justify-between gap-3 shrink-0 shadow-xs">
+        <div class="flex items-center gap-2 bg-red-50/80 px-3.5 py-1.5 rounded-xl border border-red-200/80">
+          <i class="fa-solid fa-headset text-red-600 text-sm"></i>
+          <span class="text-xs text-slate-700">
+            실무 승인 및 규정 문의 : <strong class="text-red-700 font-bold">정보보안센터 양신현 차장 (02-2012-0063)</strong>
+          </span>
+        </div>
+        <div class="flex items-center gap-2.5">
+          <button id="copyModalResultBtn" type="button" class="px-3.5 py-2 text-xs font-semibold rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 transition-colors flex items-center gap-1.5 border border-slate-200 shadow-2xs">
+            <i class="fa-regular fa-copy text-slate-600"></i>
+            <span>답변 전체 복사</span>
+          </button>
+          <button id="confirmCloseModalBtn" type="button" class="px-5 py-2 text-xs font-bold rounded-xl bg-red-600 hover:bg-red-700 active:bg-red-800 text-white transition-colors shadow-xs flex items-center gap-1.5">
+            <span>확인</span>
+            <i class="fa-solid fa-check text-[11px]"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 전체 법령 및 지침 데이터베이스 & 앱 로직 ==================== -->
+  <script>
+    /* 전체 법령 및 사내 규정 데이터베이스 (조문 텍스트 전문 100% 탑재) */
+    const POLICY_DOCUMENTS = [
+      /* ==================== 1. 사내 정보보안정책 (15종) ==================== */
+      {
+        id: "HIM-SEC-POL-001",
+        mainCategory: "security_policy",
+        category: "policy",
+        categoryName: "정보보호 정책",
+        title: "정보보호정책",
+        docNo: "HIM-SEC-POL-001",
+        revision: "Rev.0",
+        driveUrl: "https://drive.google.com/open?id=14LGfQ9LrLzPqb6lBMUj4_NryCrnPF1Mh",
+        author: "양신현 (IT기획 담당자)",
+        reviewer: "이춘성 (경영지원본부장/CISO)",
+        approver: "김대수 (대표이사 CEO)",
+        date: "2026. 02. 02",
+        summary: "에이치디씨아이파크몰의 정보보호 기본 방침, CISO 및 경영진의 지원 원칙, 정보자산 관리의 최상위 원칙 선언문.",
+        articles: [
+          {
+            chapter: "정보보호 선언문",
+            number: "선언문",
+            title: "정보보호 선언문",
+            content: "주식회사 에이치디씨아이파크몰(이하 \"회사\"라 한다)는 안전한 정보통신서비스 제공을 위해 정보통신망법 및 개인정보 보호법 등 관련 법령, 가이드라인, 표준 등에 의거하여 정보보호 지침과 필요한 절차를 수립하고, 회사의 정보시스템 및 고객의 개인정보 등 중요 정보자산을 효율적으로 보호한다.\n\n회사가 보호하여야 하는 정보자산은 다음과 같다.\n1. 정보통신서비스를 운영하기 위해 이용·생성·제공되는 정보\n2. 서비스 제공 및 업무 운영·관리를 위해 필요한 시스템 설비시설 및 정보\n\n회사는 다음과 같은 원칙을 준수한다.\n1. 모든 정보자산은 업무와 무관하게 사용되거나 공개하지 않는다.\n2. 모든 정보자산은 승인받지 않은 접근 및 변경으로부터 보호한다.\n3. 관련 법령 및 계약에 있어서의 보안요구사항을 준수한다.\n4. 모든 업무관계자는 정보유출방지를 위한 보안요구사항을 준수한다.\n\n이를 위하여 최고경영자는 다음과 같이 필요한 자원을 적극적으로 지원한다.\n1. 정보보호를 위한 충분한 예산 확보 및 지원\n2. 정보보호 실무조직 구성 및 인적자원 지원\n3. 내·외부 정보보호 교육 지원\n4. 정보보호를 위해 필요한 지침·절차를 수립하여 시행할 수 있도록 지원\n\n상기 정책 및 지침을 준수하는데 있어 모든 관계자는 성실을 원칙으로 하며, 정보보호 관리체계가 지속적으로 유지·발전될 수 있도록 하여야 한다.\n또한 회사 내·외부 환경변화에 따라 본 선언문이 지속적으로 유효성을 지닐 수 있도록 연 1회 이상 정기적 검토 및 개선작업을 수행하여야 한다."
+          },
+          {
+            chapter: "제1장 총칙",
+            number: "제1조",
+            title: "목적",
+            content: "이 정책은 회사의 정보보호를 위한 최상위 정책으로 회사의 정보 자산을 내·외부로부터의 훼손, 변조, 도난, 유출 등의 다양한 형태의 위협으로부터 안전하게 보호하기 위해 필요한 기본적인 사항에 대해 규정함을 목적으로 한다."
+          },
+          {
+            chapter: "제1장 총칙",
+            number: "제2조",
+            title: "적용범위 및 대상",
+            content: "이 정책은 회사의 정보보호 관리체계 범위에 해당되는 모든 조직, 인력 및 정보자산에 적용된다."
+          },
+          {
+            chapter: "제1장 총칙",
+            number: "제3조",
+            title: "용어의 정의",
+            content: "이 정책에서 사용하는 용어의 정의는 다음 각 호와 같다.\n1. 정보자산: 정보보호 관리체계의 범위 및 대상으로 소유하고 있는 정보 및 정보시스템(서버, 네트워크, 정보보호시스템, 시설 등)을 통칭\n2. 정보보호 관리체계: 회사의 주요 정보자산을 보호하기 위해 수립·관리·운영하고 있는 기술적·물리적 보호조치를 포함한 종합적 관리체계"
+          },
+          {
+            chapter: "제2장 정보보호 정책",
+            number: "제4조",
+            title: "정책 수립 및 공표",
+            content: "① 정보보호 정책 및 정책시행 문서(지침, 절차, 매뉴얼 등)는 국내외 유관 법령, 규제 등을 반영하여 수립하여야 하고, 정보보호 최고책임자 및 대표이사의 승인을 받아야 한다.\n1. 정보통신망 이용촉진 및 정보보호 등에 관한 법률\n2. 개인정보 보호법\n3. 전자상거래 등에서의 소비자보호에 관한 법률\n4. 부정경쟁방지 및 영업비밀보호에 관한 법률\n5. 기타 적용받는 법률 등\n② 정보보호 정책을 구체적으로 시행하기 위한 정보보호 통제에 대한 세부 사항은 하위 지침 및 매뉴얼 등에 작성하도록 한다.\n③ 승인된 정보보호 관련 규정은 제·개정 내용과 시행 사실을 관련 임직원이 알 수 있도록 메일, 업무시스템, 하드카피 문서 등 이해하기 쉬운 방법으로 공표하여야 한다."
+          },
+          {
+            chapter: "제2장 정보보호 정책",
+            number: "제5조",
+            title: "정책의 유지관리",
+            content: "① 보안점검 및 정보보호 감사 결과분석 등을 통해 정책 및 정책시행 문서에서 규정하고 있는 정보보호 활동의 주기, 방법 등이 적절한지 연 1회 이상 검토하여 필요한 경우 제·개정한다.\n② 제1항의 정기적인 타당성 검토 이외에 다음과 같은 상황이 발생했을 경우 추가로 검토하여 제·개정한다.\n1. 개인정보 및 정보보호 관련 법령 제·개정\n2. 중대한 내·외부 보안사고 발생\n3. 새로운 위협 또는 취약성의 발견\n4. 정보보호 및 IT 환경의 중대한 변화 (예: 차세대 시스템 구축)\n5. 비즈니스 환경의 변화 (예: 신규 사업 영역 진출 등)"
+          },
+          {
+            chapter: "제2장 정보보호 정책",
+            number: "제6조",
+            title: "정책 문서의 관리",
+            content: "① 정보보호 담당자는 정보보호 정책 및 정책시행 문서를 대외비로 분류하여 관리한다.\n② 정보보호 정책 및 지침 등은 변경사항(일자, 내용, 작성자, 승인자)에 대한 이력관리가 되어야 하며, 최신본을 유지하여 언제든지 확인할 수 있도록 한다.\n③ 정보보호 관리체계와 관련 있는 각 지침 및 절차에 따른 주요 문서의 목록을 유지·관리한다."
+          },
+          {
+            chapter: "제3장 정보보호 관리체계의 운영",
+            number: "제7조",
+            title: "위험 관리 및 계획",
+            content: "① 정보보호 관리체계 범위 내의 정보자산에 대해서 관리적, 기술적, 물리적, 법적 분야 등 정보보호 전 영역에 대한 연 1회 이상 위험 식별 및 평가를 실시한 후 그 결과에 따라 적절한 정보보호 관리 활동을 한다.\n② 위험분석 및 평가 결과에 근거하여 위험감소를 위한 정보보호 대책을 수립한다.\n③ 주요 정보보호대책의 구현 우선순위, 일정, 예산, 담당자, 운영계획 등이 포함된 정보보호 계획을 수립하고 정보보호 최고책임자의 승인을 받아야 한다."
+          },
+          {
+            chapter: "제3장 정보보호 관리체계의 운영",
+            number: "제8조",
+            title: "대책 구현",
+            content: "① 정보보호 계획에 근거한 관리적 대책, 기술적 대책, 물리적 대책을 구현 및 운영하고 그 이행 결과를 정보보호 최고책임자에게 보고하여야 한다.\n② 정보보호 인식강화를 위하여 인력(임직원 및 외부자 포함)에 대한 정보보호 인식 교육과 보호대책에 대한 훈련을 실시하여야 한다."
+          },
+          {
+            chapter: "제3장 정보보호 관리체계의 운영",
+            number: "제9조",
+            title: "사후관리",
+            content: "① 정보보호 관리체계가 효과적으로 운영되고 있는지 지속적으로 모니터링하여야 하며, 모니터링 감사 결과 발견된 취약점 및 부적합 사항에 대한 적절한 조치를 취해야 한다.\n② 불시 또는 주기적인 정보보호 관리체계 점검 및 감사를 통한 운영기록의 확인과 그 결과에 따른 통제 및 개선관리를 하여야 한다."
+          },
+          {
+            chapter: "제4장 정보보호 통제",
+            number: "제10조 ~ 제21조",
+            title: "분야별 14대 정보보호 통제 기준",
+            content: "제10조 (법적 준거성): 회사의 제반 규정은 국내외 관련 법령 및 계약상 보안요구사항을 지속적으로 준수한다.\n제11조 (정보보호 조직): CISO, CPO 및 정보보호위원회를 운영한다 (HIM-SEC-GUI-002 연계).\n제12조 (자산관리): 중요도에 따른 3단계 등급화 및 자산관리대장을 유지한다 (HIM-SEC-GUI-003 연계).\n제13조 (인적 보안): 채용, 재직, 퇴직 전 과정의 보안의무와 비밀유지 서약을 징구한다 (HIM-SEC-GUI-004 연계).\n제14조 (물리적 보안): 일반, 제한, 통제구역 3단계 보호구역을 설정하고 출입을 통제한다 (HIM-SEC-GUI-007 연계).\n제15조 (시스템 도입·개발·유지보수): SDLC 전 과정의 시큐어코딩 및 보안검수를 이행한다 (HIM-SEC-GUI-010 연계).\n제16조 (데이터 보호 및 암호화): 비밀번호 및 고유식별정보의 암호화 저장 및 전송구간 암호화를 의무화한다 (HIM-SEC-GUI-009 연계).\n제17조 (접근통제): 최소 권한 부여 및 직무분리 원칙을 수립한다.\n제18조 (운영보안): 시스템 및 보안장비의 일상 운영 기준을 수립한다 (HIM-SEC-GUI-013 연계).\n제19조 (네트워크 보안): 망분리 및 방화벽 룰셋을 관리한다.\n제20조 (침해사고 관리): 즉시 보고 체계 및 포렌식 대응 절차를 가동한다 (HIM-SEC-GUI-011 연계).\n제21조 (업무연속성 관리): 비상사태 시 BCP 및 재해복구 체계를 가동한다 (HIM-SEC-GUI-012 연계)."
+          },
+          {
+            chapter: "제5장 부칙",
+            number: "부칙 제1조 ~ 제3조",
+            title: "시행일, 예외적용 및 경과조치",
+            content: "제1조 (시행일): 이 정책은 대표이사의 승인 일자(2026. 02. 02) 이후부터 시행한다.\n제2조 (예외적용): 기술환경 변화, 긴급 사유, 재해 등 불가항력적인 경우 CISO 승인 하에 예외 취급할 수 있다.\n제3조 (경과조치): 요건을 충족하지 못한 경우 시행일로부터 1년 이내에 개선방안을 마련하여야 한다."
+          },
+          {
+            chapter: "관련 서식",
+            number: "[붙임 1]",
+            title: "정보보호정책 관리절차",
+            content: "1. 정보보호 관련 법규 제·개정 모니터링/검토 (정보통신망법, 개인정보보호법, ISMS-P 기준)\n2. 제/개정 반영 및 검토 요청\n3. IT운영조직 등 유관부서 검토 및 합의\n4. 승인 요청 (정책: CEO 김대수 / 지침·절차: CISO 이춘성)\n5. 사내 공표 및 공지 (연 1회 이상 정기 검토 시행)"
+          }
+        ]
+      },
+      {
+        id: "HIM-SEC-GUI-008",
+        mainCategory: "security_policy",
+        category: "guideline",
+        categoryName: "정보보호 지침",
+        title: "개인PC보안지침",
+        docNo: "HIM-SEC-GUI-008",
+        revision: "Rev.0",
+        driveUrl: "https://drive.google.com/open?id=1MgERGfYB86Gvwwk1uYWFrwX-k8DT7ssT",
+        author: "양신현 (IT기획 담당자)",
+        reviewer: "이건상 (경영기획팀장)",
+        approver: "이춘성 (경영지원본부장/CISO)",
+        date: "2026. 02. 02",
+        summary: "화면보호기(10분 이하), 패스워드 복잡도 규칙(10자리/8자리), 공유폴더 금지, 백신 최신화.",
+        articles: [
+          {
+            chapter: "제1장 총칙",
+            number: "제1조",
+            title: "목적",
+            content: "이 지침은 에이치디씨아이파크몰 주식회사(이하 \"회사\"라 한다)에서 사용하는 업무용 PC에 대한 보안을 유지하게 함으로써 원활한 업무 수행이 지원될 수 있도록 하는 것을 그 목적으로 한다."
+          },
+          {
+            chapter: "제1장 총칙",
+            number: "제2조",
+            title: "적용 범위",
+            content: "이 지침은 회사에서 업무를 위해 사용하고 있는 모든 개인 컴퓨터에 적용한다."
+          },
+          {
+            chapter: "제1장 총칙",
+            number: "제3조",
+            title: "책임 및 역할",
+            content: "① 정보보호 담당자는 주기적으로 바이러스 최신정보, 최신 웹 브라우저, 패치 등을 제공하며, PC자산에 대한 바이러스 점검 및 불법 소프트웨어 점검 등의 개인PC 보안관리 활동을 수행한다.\n② 사용자는 PC를 통해 업무를 수행하는 회사 임직원을 말하며, 이 지침을 준수하여 관리한다."
+          },
+          {
+            chapter: "제2장 PC 사용자 보안",
+            number: "제4조",
+            title: "화면보호기",
+            content: "① 자리 이석 시 비인가자의 PC 사용을 방지하기 위해 모든 PC에 화면보호기를 설정한다.\n② 화면보호기는 패스워드로 보호되어야 하며, 응용 시스템의 패스워드와 다른 것을 사용한다.\n③ 화면보호기가 작동하는 시간은 10분 이하로 설정한다.\n④ 시스템관리 목적상 제약이 발생되는 조건에서는 예외로 한다."
+          },
+          {
+            chapter: "제2장 PC 사용자 보안",
+            number: "제5조",
+            title: "사용자 패스워드",
+            content: "① 사용자의 패스워드는 비밀로 유지하고 타인에게 노출하지 않도록 한다.\n② 패스워드를 별도의 문서에 적어 놓거나 암호화되지 않은 형태로 PC에 저장하지 않는다.\n③ 영대문자(A~Z), 영소문자(a~z), 숫자(0~9), 특수문자(~, !, @ 등) 중 두 종류 이상을 조합하여 10자 이상 또는 세 종류 이상을 조합하여 8자 이상으로 조합한다.\n④ 주민등록번호, 전화번호, 생일, 사전에 나오는 단어 등 임의추측이 가능한 패스워드를 피한다.\n⑤ 사용자가 임시 패스워드를 부여받은 경우에는 최초 로그인 시 반드시 변경해야 한다."
+          },
+          {
+            chapter: "제2장 PC 사용자 보안",
+            number: "제6조",
+            title: "공유관리",
+            content: "① 사용자는 PC를 사용함에 있어 공유폴더를 사용하지 않는 것을 원칙으로 한다.\n② 부득이하게 업무적으로 공유폴더를 사용할 경우 읽기 권한으로 공유하되 패스워드를 부여해야 한다.\n③ 공유 시 전체 디스크가 아닌 최소한의 파일만 공유해야 하며, 공유의 목적이 끝날 경우 즉시 공유를 해제한다.\n④ 네트워크 환경 상에 자신의 공유폴더가 나타나지 않도록 공유 이름 입력 시 \"$\" 표시를 한다."
+          },
+          {
+            chapter: "제2장 PC 사용자 보안",
+            number: "제7조",
+            title: "PC 보안 관리",
+            content: "① 모든 PC는 비인가자가 무단으로 조작하지 못하도록 로그인 패스워드를 설정한다.\n② 회사 네트워크에 접속하는 모든 PC에 정보보호 담당자가 지정하는 보안프로그램을 설치한다.\n③ 주요정보 또는 고객 개인정보가 저장되어 있거나 통제구역 내부의 PC에 대해서는 외부 반출금지 등 강화된 보호대책을 운용한다.\n④ 회사 내에서는 정보보호 담당자가 승인한 무선통신망에만 접속할 수 있다.\n⑤ 응용프로그램 제조사 또는 정보보호 담당자가 제공하는 최신 서비스팩 또는 패치를 설치한다.\n⑥ 매각 및 폐기는 '정보자산관리지침 제14조'에 따라 진행한다."
+          },
+          {
+            chapter: "제2장 PC 사용자 보안",
+            number: "제8조",
+            title: "PC 데이터의 보관",
+            content: "① PC는 중요 정보(개인정보, 기밀정보 등)의 노출 위험이 존재하므로 중요 정보를 보관하지 않는 것을 원칙으로 한다.\n② 업무상 부득이하게 중요 정보를 저장해야 하는 경우 패스워드 혹은 암호화 기법 등을 이용해 보안성을 확보한 후 저장하여 보관한다.\n③ WORD, 한글 등의 문서를 작성할 경우에는 파일 자체 암호화 기능을 사용하여 암호화한다."
+          },
+          {
+            chapter: "제2장 PC 사용자 보안",
+            number: "제9조",
+            title: "인터넷 접속통제",
+            content: "① 개인정보처리시스템에 접근 권한을 설정하거나 다운로드/파기할 수 있는 취급자 PC의 인터넷 접속을 제한한다.\n② 불건전 음란, 주식, 게임, 도박, P2P, 외부 메신저, 웹하드 사이트 등의 접속을 차단한다."
+          },
+          {
+            chapter: "제2장 PC 사용자 보안",
+            number: "제10조",
+            title: "모바일 기기 보안",
+            content: "① 스마트폰, 태블릿 등 모바일 기기로 사내망 접속 시 정보보호 담당자의 승인을 득한다.\n② 단말기 잠금 기능을 상시 적용하며 72시간 미사용 시 잠금장치가 있는 안전한 장소에 보관한다.\n③ 신뢰할 수 없는 외부 공공 Wi-Fi망에서 결재 및 기밀자료 열람 업무를 금지한다."
+          },
+          {
+            chapter: "제2장 PC 사용자 보안",
+            number: "제11조",
+            title: "바이러스 감염방지",
+            content: "① 바이러스 백신 프로그램은 항상 실행 상태를 유지하고 자동 업데이트를 통해 최신 엔진을 유지한다.\n② 바이러스 감염 시 즉시 PC 사용을 중지하고 네트워크 랜선을 분리하여 격리한 후 정보보호 담당자에게 신고한다."
+          },
+          {
+            chapter: "제2장 PC 사용자 보안",
+            number: "제12조 ~ 제13조",
+            title: "불법 소프트웨어 및 전자메일 관리",
+            content: "정품 라이선스 없는 무단 복제 SW 사용을 금지하며, 출처가 불분명한 메일은 즉시 삭제하고 업무상 기밀 반출 시 암호화하여 발송한다."
+          },
+          {
+            chapter: "제3장 부칙",
+            number: "부칙 제1조 ~ 제3조",
+            title: "시행일, 예외적용 및 경과조치",
+            content: "이 지침은 대표이사(또는 CISO) 승인일로부터 시행하며, 기술적 환경 변화 시 CISO 승인을 받아 예외 적용할 수 있다."
+          }
+        ]
+      },
+      {
+        id: "HIM-SEC-GUI-007",
+        mainCategory: "security_policy",
+        category: "guideline",
+        categoryName: "정보보호 지침",
+        title: "물리적보안지침",
+        docNo: "HIM-SEC-GUI-007",
+        revision: "Rev.0",
+        driveUrl: "https://drive.google.com/open?id=1mzZ577UmpebpoD4xq-t8jO0kUaG0cv4c",
+        author: "양신현 (IT기획 담당자)",
+        reviewer: "이건상 (경영기획팀장)",
+        approver: "이춘성 (경영지원본부장/CISO)",
+        date: "2026. 02. 02",
+        summary: "보호구역 3단계(일반/제한/통제구역) 설정, 용산점·고척점 방재실 및 서버실 안전관리, 1년 출입로그 보관 및 자산 반출입 통제.",
+        articles: [
+          {
+            chapter: "제1장 총칙",
+            number: "제1조 ~ 제4조",
+            title: "목적, 적용범위, 용어정의 및 R&R",
+            content: "회사의 재산을 보호하기 위해 일반구역(접견실), 제한구역(9층 사무실, 5층 정산실, 8층 전산창고 등), 통제구역(서버실, 용산점·고척점 방재실, 마북IDC)을 설정하고 물리보안 담당자와 정보보호 담당자의 권한과 책임을 명시한다."
+          },
+          {
+            chapter: "제2장 보호구역의 설정",
+            number: "제5조 ~ 제6조",
+            title: "보호구역 설정 및 표지",
+            content: "1. 일반구역 : 외부인 접견구역\n2. 제한구역 : 9층 사무실 구역, 5층 정산실, 금고실, 문서고, 8층 전산창고\n3. 통제구역 : 서버실, 방재실(용산점, 고척점), 마북IDC (통제구역 표지판 부착 및 비인가자 출입 엄격 금지)"
+          },
+          {
+            chapter: "제3장 서버실 보호 및 관리",
+            number: "제7조 ~ 제13조",
+            title: "서버실 안전관리, 비상사태, 항온항습 및 작업통제",
+            content: "CCTV 및 출입통제 장치 설치, 건물 안내도에 서버실 위치 미표기, 하론가스 등 가스자동소화설비 구비, 무정전전원장치(UPS) 및 비상발전기 확보, 24시간 항온항습기 운영, 통제구역 내 작업 시 사전 작업계획서 승인 및 담당자 입회 필수."
+          },
+          {
+            chapter: "제4장 보호구역 출입통제",
+            number: "제14조 ~ 제17조",
+            title: "출입증 관리 및 출입로그 보관 (1년 이상)",
+            content: "지문인식 또는 출입증 기반 출입통제, 퇴사 및 용역 종료 시 즉시 권한 회수, 출입통제시스템 출입로그 최소 1년 이상 보관 및 분기별 출입적정성 검토."
+          },
+          {
+            chapter: "제5장 정보자산 반·출입 통제",
+            number: "제18조 ~ 제19조",
+            title: "정보자산 반출입 및 클린데스크",
+            content: "PC, 모바일기기, 저장매체 반출입 시 사전 승인 득함, 책상 위 서류 방치 금지(Clean Desk) 및 퇴근 시 시건장치 확인."
+          },
+          {
+            chapter: "제6장 부칙",
+            number: "부칙 제1조 ~ 제3조",
+            title: "시행일, 예외적용 및 경과조치",
+            content: "승인일로부터 시행하며 요건 미충족 시 1년 이내 개선방안을 마련한다."
+          }
+        ]
+      },
+      {
+        id: "HIM-SEC-GUI-013",
+        mainCategory: "security_policy",
+        category: "guideline",
+        categoryName: "정보보호 지침",
+        title: "정보시스템보안지침",
+        docNo: "HIM-SEC-GUI-013",
+        revision: "Rev.0",
+        driveUrl: "https://drive.google.com/open?id=1nI6kgL-HAA78niWuL9Wp1KcNjA0JyRpN",
+        author: "양신현 (IT기획 담당자)",
+        reviewer: "이건상 (경영기획팀장)",
+        approver: "이춘성 (경영지원본부장/CISO)",
+        date: "2026. 02. 02",
+        summary: "서버, 네트워크, DB 및 보안장비(ASA5525, NetHelper, DB Safer) 세부 보안통제, 계정 1인1계정, 백업 관리.",
+        articles: [
+          {
+            chapter: "제1장 총칙",
+            number: "제1조 ~ 제4조",
+            title: "목적, 적용범위 및 R&R",
+            content: "보유한 서버, 네트워크, DBMS, 정보보호시스템에 대한 도입·운영·폐기 보안통제 절차와 담당자 역할을 규정한다."
+          },
+          {
+            chapter: "제2장 시스템 도입·운영·폐기 관리",
+            number: "제5조 ~ 제9조",
+            title: "도입, 변경 및 완전 삭제 폐기",
+            content: "불필요한 포트 차단, 보안강화 조치 완료 후 서비스 투입, 저장장치 논리적/물리적 파쇄 후 매각·폐기 및 자산관리대장 갱신."
+          },
+          {
+            chapter: "제3장 계정 및 접근 관리",
+            number: "제10조 ~ 제13조",
+            title: "1인 1계정 원칙, 패스워드 복잡도 및 10분 세션 타임아웃",
+            content: "① 1인 1계정 사용 원칙, 계정 권한 이력 최소 3년 보관.\n② 패스워드 2종 10자리 / 3종 8자리 이상, 5회 입력 오류 시 계정 잠금.\n③ 중요 시스템 최대 접속 세션 10분 제한 적용: NetHelper, ASA5525 방화벽, DB Safer(DB접근제어), D'Amo KMS(암호키관리), 아이파크몰 어드민, 아이시그널 등."
+          },
+          {
+            chapter: "제4장 ~ 제9장 운영 및 백업",
+            number: "제14조 ~ 제20조",
+            title: "보안패치, 감사로그, 소산 백업 및 장비 운영",
+            content: "긴급 패치 즉각 적용, 관리자 명령어 실행 감사로그 보관, 원격 분리 보관(소산 백업) 및 정기 복구 모의훈련, 방화벽 룰셋 반기 1회 이상 재검토."
+          },
+          {
+            chapter: "제10장 부칙",
+            number: "부칙 제1조 ~ 제3조",
+            title: "시행일, 예외적용 및 경과조치",
+            content: "대표이사(또는 CISO) 승인일로부터 시행한다."
+          }
+        ]
+      },
+      {
+        id: "HIM-SEC-GUI-006",
+        mainCategory: "security_policy",
+        category: "guideline",
+        categoryName: "정보보호 지침",
+        title: "외주관리지침",
+        docNo: "HIM-SEC-GUI-006",
+        revision: "Rev.0",
+        driveUrl: "https://drive.google.com/open?id=1JGRJRkswFwC3KmgFqMvzJ6296AFs3E3U",
+        author: "양신현 (IT기획 담당자)",
+        reviewer: "이건상 (경영기획팀장)",
+        approver: "이춘성 (경영지원본부장/CISO)",
+        date: "2026. 02. 02",
+        summary: "외주 용역 및 위탁 계약 시 보안특약 반영, 외주인력 물리적/논리적 통제, 계약 만료 시 산출물 회수 및 계정 삭제.",
+        articles: [
+          {
+            chapter: "제1장 총칙",
+            number: "제1조 ~ 제4조",
+            title: "목적, 적용범위 및 외주인력 R&R",
+            content: "제3자와의 제휴, 위탁 및 외주용역 대상 정보자산 보호 의무와 책임을 규정하고 보안서약서 숙지 및 산출물 무단 유출 금지를 명시한다."
+          },
+          {
+            chapter: "제2장 외주 계약관리",
+            number: "제5조 ~ 제8조",
+            title: "계약 시 보안요구사항, 서약서 징구 및 종료 시 처리",
+            content: "계약서에 [붙임 1] 외부자 보안의무 요구사항 명시, 비밀유지 서약서 징구, 사업 종료 즉시 논리적·물리적 접근권한 회수 및 단말기 내 산출물 영구 삭제 확인."
+          },
+          {
+            chapter: "제3장 외주 보안관리",
+            number: "제9조 ~ 제11조",
+            title: "사내망 분리, root 계정 단독접근 금지 및 합동 보안점검",
+            content: "외주인력 전용 분리 통신망 사용, 외부 원격접속 시 VPN 필수, 서버 root 계정 단독 접속 불허(담당자 입회 하 작업), 외주업체 대상 정기/수시 보안점검 실시."
+          },
+          {
+            chapter: "제4장 부칙 및 붙임",
+            number: "부칙 및 [붙임 1, 2]",
+            title: "외부자 보안의무 요구사항 및 관리 절차",
+            content: "정보자산 비밀유지, 백신 검역, 위반 시 손해배상 책임, 보안감사 수용권, 착수-수행-종료 단계별 보안점검 체크리스트 전문."
+          }
+        ]
+      },
+      {
+        id: "HIM-SEC-GUI-003",
+        mainCategory: "security_policy",
+        category: "guideline",
+        categoryName: "정보보호 지침",
+        title: "정보자산관리지침",
+        docNo: "HIM-SEC-GUI-003",
+        revision: "Rev.0",
+        driveUrl: "https://drive.google.com/open?id=1GmtGXmXJAlm77PXSKt-O8qN3OkZVe_d_",
+        author: "양신현 (IT기획 담당자)",
+        reviewer: "이건상 (경영기획팀장)",
+        approver: "이춘성 (경영지원본부장/CISO)",
+        date: "2026. 02. 02",
+        summary: "정보자산 식별, 가치평가(상·중·하), 보안등급 분류(기밀/대외비/일반), 자산 반출입 및 영구 폐기 관리.",
+        articles: [
+          {
+            chapter: "제1장 ~ 제2장 자산분류 및 평가",
+            number: "제1조 ~ 제10조",
+            title: "자산 식별, 12개 분류 체계, C·I·A 평가 및 등급 부여",
+            content: "서버, DBMS, 애플리케이션, 네트워크, 단말기, 문서 등 12개 분류. 기밀성(C), 무결성(I), 가용성(A) 각 1~3점 평가 합산에 따라 상(8~9점, 기밀), 중(6~7점, 대외비), 하(3~5점, 일반) 등급 분류 및 연 1회 재평가."
+          },
+          {
+            chapter: "제3장 정보자산 관리",
+            number: "제11조 ~ 제14조",
+            title: "취급절차, 변경관리 및 영구 폐기 기준",
+            content: "기밀/대외비 문서 암호화 전송 및 승인 절차, 출력물 이면지 활용 전면 금지 및 파쇄기 파기, 저장매체 로우레벨 포맷 및 물리적 파쇄, 저장매체 폐기 관리대장 작성."
+          },
+          {
+            chapter: "제4장 부칙 및 붙임",
+            number: "부칙 및 [붙임 1]",
+            title: "시행일 및 시스템 도입·변경 절차",
+            content: "보안성 검토 요청 및 승인, 변경 7일 전 사전 공지, 비상 복구 대책 수립 프로세스 전문."
+          }
+        ]
+      },
+      {
+        id: "HIM-SEC-GUI-004",
+        mainCategory: "security_policy",
+        category: "guideline",
+        categoryName: "정보보호 지침",
+        title: "인적보안지침",
+        docNo: "HIM-SEC-GUI-004",
+        revision: "Rev.0",
+        driveUrl: "https://drive.google.com/open?id=13N2ob3soVYVYpjomViEwsah3WQ8rpcFz",
+        author: "양신현 (IT기획 담당자)",
+        reviewer: "이건상 (경영기획팀장)",
+        approver: "이춘성 (경영지원본부장/CISO)",
+        date: "2026. 02. 02",
+        summary: "임직원 및 외부인력 채용, 직무분리, 재직, 부서이동, 퇴직 시 보안 서약서 징구 및 권한 파기 확인서 관리.",
+        articles: [
+          {
+            chapter: "제1장 ~ 제2장 인적 자원 보안",
+            number: "제1조 ~ 제9조",
+            title: "채용 점검, 주요직무자 지정, 직무분리 및 퇴직 절차",
+            content: "최소 권한 부여 원칙, 운영자와 개발자·보안담당자 간 상호 직무분리, 입사/재직/퇴직 시 보안서약서 징구, 퇴사 시 계정·출입권한 즉시 회수 및 단말기 포맷 확인서 징구."
+          },
+          {
+            chapter: "제3장 ~ 제4장 준수 및 상벌",
+            number: "제10조 ~ 제11조 및 부칙",
+            title: "보안 규정 준수 및 위반자 징계 양정",
+            content: "보안사고 및 규정 위반 시 인사위원회 회부, [붙임 3] 정보보안 위반자 처리기준에 따른 무관용 원칙 적용."
+          }
+        ]
+      },
+      {
+        id: "HIM-SEC-GUI-005",
+        mainCategory: "security_policy",
+        category: "guideline",
+        categoryName: "정보보호 지침",
+        title: "정보보호교육지침",
+        docNo: "HIM-SEC-GUI-005",
+        revision: "Rev.0",
+        driveUrl: "https://drive.google.com/open?id=1G_lwR5M0yfAAU3k1KBb3PSRdvavrLAc6",
+        author: "양신현 (IT기획 담당자)",
+        reviewer: "이건상 (경영기획팀장)",
+        approver: "이춘성 (경영지원본부장/CISO)",
+        date: "2026. 02. 02",
+        summary: "전 임직원 및 외주 협력사 파견인력 대상 연간 정보보호 및 개인정보보호 정기교육 계획 수립과 실태 점검.",
+        articles: [
+          {
+            chapter: "제1장 ~ 제2장 교육 관리 절차",
+            number: "제1조 ~ 제9조",
+            title: "연간 교육계획, 대상별 교육주기(연 1회 이상), 신규입사자 교육 및 실태점검",
+            content: "IT/보안 직무 전문교육(연 1회 이상), 전 임직원 및 외주인력 대상 정보보호·개인정보보호 교육(연 1회 이상), 반기별 이수실태 점검 및 미이수자 추가 전파교육 실시."
+          }
+        ]
+      },
+      {
+        id: "HIM-SEC-GUI-009",
+        mainCategory: "security_policy",
+        category: "guideline",
+        categoryName: "정보보호 지침",
+        title: "암호화관리지침",
+        docNo: "HIM-SEC-GUI-009",
+        revision: "Rev.0",
+        driveUrl: "https://drive.google.com/open?id=18f0a88cY6jaEVMJxeq0ZXP0_1okfpwTz",
+        author: "양신현 (IT기획 담당자)",
+        reviewer: "이건상 (경영기획팀장)",
+        approver: "이춘성 (경영지원본부장/CISO)",
+        date: "2026. 02. 02",
+        summary: "비밀번호 일방향 암호화, 고유식별정보(주민등록번호 등) 양방향 안전 알고리즘 암호화 및 KMS 키 관리 기준.",
+        articles: [
+          {
+            chapter: "제1장 ~ 제4장 암호화 알고리즘 및 키 관리",
+            number: "제1조 ~ 제16조",
+            title: "암호화 대상, SEED/ARIA/AES 알고리즘, bcrypt 해시 및 키 수명주기",
+            content: "고유식별정보, 신용카드번호, 비밀번호, 생체정보 암호화 저장. 비밀번호는 bcrypt 등 솔트 일방향 해시 적용. 전송구간 SSL/TLS 암호화. 암호키 사용기간 최대 2년, 유효기간 최대 5년, 소산 백업 관리."
+          }
+        ]
+      },
+      {
+        id: "HIM-SEC-GUI-010",
+        mainCategory: "security_policy",
+        category: "guideline",
+        categoryName: "정보보호 지침",
+        title: "개발보안지침",
+        docNo: "HIM-SEC-GUI-010",
+        revision: "Rev.0",
+        driveUrl: "https://drive.google.com/open?id=1mMJf1Tj8kixEKgXxIzMfS2ZL7FAiQWW3",
+        author: "양신현 (IT기획 담당자)",
+        reviewer: "이건상 (경영기획팀장)",
+        approver: "이춘성 (경영지원본부장/CISO)",
+        date: "2026. 02. 02",
+        summary: "소프트웨어 개발주기(SDLC) 단계별 보안요구사항 정의, 시큐어코딩(Secure Coding), 백도어 점검, 운영시스템 분리.",
+        articles: [
+          {
+            chapter: "제1장 ~ 제4장 개발보안 통제",
+            number: "제1조 ~ 제20조",
+            title: "설계보안, 시큐어코딩 표준, 소스코드 하드코딩 금지, 테스트 데이터 가명화 및 이관",
+            content: "동시세션 차단 및 5회 실패 잠금 설계, SQL 인젝션·XSS 방지, 소스코드 내 계정/IP 하드코딩 엄격 금지, 백도어 코드 삽입 금지, 실 운영데이터 테스트 데이터 사용 금지(가명화 필수)."
+          }
+        ]
+      },
+      {
+        id: "HIM-SEC-GUI-011",
+        mainCategory: "security_policy",
+        category: "guideline",
+        categoryName: "정보보호 지침",
+        title: "침해사고대응지침",
+        docNo: "HIM-SEC-GUI-011",
+        revision: "Rev.0",
+        driveUrl: "https://drive.google.com/open?id=1pyaj2E8tRPBonG9hZ4v_0P2J4OeRA2Tt",
+        author: "양신현 (IT기획 담당자)",
+        reviewer: "이건상 (경영기획팀장)",
+        approver: "이춘성 (경영지원본부장/CISO)",
+        date: "2026. 02. 02",
+        summary: "침해사고 심각도(심각/경계/주의/관심), 발견 시 즉시 보고 및 전산망 분리, 포렌식 증거 보존, 복구 및 재발방지 절차.",
+        articles: [
+          {
+            chapter: "제1장 ~ 제3장 침해사고 대응체계",
+            number: "제1조 ~ 제15조",
+            title: "4단계 심각도, 보고체계, 초동조치(네트워크 분리, 전원 유지), 상세 복구 및 예방점검",
+            content: "심각/경계/주의/관심 4단계 정의. 침해 징후 인지 즉시 CISO 보고 및 긴급 차단. 피해 단말기 네트워크 분리 후 휘발성 메모리 덤프 확보. 로그 분석 1개월, 취약점 점검 1년 주기 실시."
+          }
+        ]
+      },
+      {
+        id: "HIM-SEC-GUI-012",
+        mainCategory: "security_policy",
+        category: "guideline",
+        categoryName: "정보보호 지침",
+        title: "IT재해복구지침",
+        docNo: "HIM-SEC-GUI-012",
+        revision: "Rev.0",
+        driveUrl: "https://drive.google.com/open?id=1YDdweR9lkxouzoKRfyV1dOlSw9G_Yqls",
+        author: "양신현 (IT기획 담당자)",
+        reviewer: "이건상 (경영기획팀장)",
+        approver: "이춘성 (경영지원본부장/CISO)",
+        date: "2026. 02. 02",
+        summary: "자연재해, 대형 화재 및 시스템 전면 장애 시 핵심 사업 연속성(BCP) 유지, 비상대책위원회 가동, 4단계 긴급도 및 모의훈련.",
+        articles: [
+          {
+            chapter: "제1장 ~ 제6장 재해복구 및 모의훈련",
+            number: "제1조 ~ 제23조",
+            title: "재난 분류, 비상대책위원회 구성, 영향도/긴급도 산정 및 연간 모의훈련",
+            content: "대규모/중규모/소규모 재난 분류. CISO 비상대책위원장 선임. 장애(30분), 경계(1시간), 주의(6시간), 관심(12시간) 처리 기준. 연 1회 재해복구 모의훈련 및 결과보고서 제출."
+          }
+        ]
+      },
+      {
+        id: "HIM-SEC-GUI-001",
+        mainCategory: "security_policy",
+        category: "guideline",
+        categoryName: "정보보호 지침",
+        title: "정보보호감사지침",
+        docNo: "HIM-SEC-GUI-001",
+        revision: "Rev.0",
+        driveUrl: "https://drive.google.com/open?id=1b22uNZ4FyejoibMfDogCHjMRUipJr3Xt",
+        author: "양신현 (IT기획 담당자)",
+        reviewer: "이건상 (경영기획팀장)",
+        approver: "이춘성 (경영지원본부장/CISO)",
+        date: "2026. 02. 02",
+        summary: "정보보호 활동 이행여부를 점검하고 개선하기 위한 감사 기준, 감사팀 구성, 연 1회 정기감사 및 15일 이행계획 수립 절차.",
+        articles: [
+          {
+            chapter: "제1장 ~ 제5장 감사 운영 및 조치",
+            number: "제1조 ~ 제16조",
+            title: "감사팀 구성, 감사인 요건, 연 1회 정기감사, 15일 이내 개선이행계획 제출",
+            content: "독립적 감사팀 구성, 피감부서는 자료제출 거부 불가, 감사 결과 통보 후 15일 이내 수감부서의 이행조치 계획서 제출 의무화."
+          }
+        ]
+      },
+      {
+        id: "HIM-SEC-GUI-002",
+        mainCategory: "security_policy",
+        category: "guideline",
+        categoryName: "정보보호 지침",
+        title: "정보보호조직운영지침",
+        docNo: "HIM-SEC-GUI-002",
+        revision: "Rev.0",
+        driveUrl: "https://drive.google.com/open?id=1NyPDC-9o-FDPGioTRzsIdShybRw0bLq4",
+        author: "양신현 (IT기획 담당자)",
+        reviewer: "이건상 (경영기획팀장)",
+        approver: "이춘성 (경영지원본부장/CISO)",
+        date: "2026. 02. 02",
+        summary: "임원급 CISO/CPO 지정, 정보보호위원회 및 실무조직의 권한과 책임(R&R) 정의.",
+        articles: [
+          {
+            chapter: "제1장 ~ 제3장 조직 및 R&R",
+            number: "제1조 ~ 제7조",
+            title: "CISO/CPO 지정, 정보보호위원회 구성 및 실무조직 R&R",
+            content: "경영지원본부장 CISO 및 CPO 겸임 위촉, 연 1회 정기 정보보호위원회 소집, 보안 실무조직(IT기획/정보보안 파트) 상시 운영."
+          }
+        ]
+      },
+      {
+        id: "HIM-SEC-GUI-014",
+        mainCategory: "security_policy",
+        category: "guideline",
+        categoryName: "정보보호 지침",
+        title: "개인정보보호지침",
+        docNo: "HIM-SEC-GUI-014",
+        revision: "Rev.0",
+        driveUrl: "https://drive.google.com/open?id=1XUwco4Gt_QDoNoldEPwo-pG-qclut3Lr",
+        author: "양신현 (IT기획 담당자)",
+        reviewer: "이건상 (경영기획팀장)",
+        approver: "이춘성 (경영지원본부장/CISO)",
+        date: "2026. 02. 02",
+        summary: "개인정보 보호법 내부관리계획 기준 반영, 기술적·관리적 보호조치, 접속기록 1~2년 보관, 5일 이내 파기 및 마스킹.",
+        articles: [
+          {
+            chapter: "제1장 ~ 제8장 개인정보 내부통제",
+            number: "제1조 ~ 제11조",
+            title: "내부관리계획, 권한관리(3년 보관), 접속기록(1~2년 보관 및 월1회 점검), 5일 이내 영구파기",
+            content: "수탁사 연 1회 감독, 목적 달성 시 5일 이내 복원 불가능한 방법으로 영구 삭제, 정보주체 권리행사 시 10일 이내 회신."
+          }
+        ]
+      },
+      {
+        id: "HIM-SEC-MAN-001",
+        mainCategory: "security_policy",
+        category: "manual",
+        categoryName: "대응 매뉴얼",
+        title: "IT재해복구 대응매뉴얼",
+        docNo: "HIM-SEC-MAN-001",
+        revision: "Rev.0",
+        driveUrl: "https://drive.google.com/open?id=17ZaliioA58uRhgXP5IQueI2i7qhk7WC4",
+        author: "양신현 (IT기획 담당자)",
+        reviewer: "이건상 (경영기획팀장)",
+        approver: "이춘성 (경영지원본부장/CISO)",
+        date: "2026. 02. 02",
+        summary: "자연재해 및 기술적 재해 발생 시 비상대책위원회 소집, 재해선포 기준(24시간 복구 소요 시) 및 단계별 복구 행동요령.",
+        articles: [
+          {
+            chapter: "1. 개요 ~ 4. 훈련",
+            number: "1.1 ~ 4.2",
+            title: "재해 위기유형, 24시간 재해선포 기준, 비상조직 및 단계별 복구 시나리오",
+            content: "치명적 피해로 24시간 이상 복구 소요 시 비상대책위원장(CISO) 승인 하 공식 재해 선포, 백업 미디어 반입 및 인프라 순차 복원."
+          }
+        ]
+      },
+      {
+        id: "HIM-SEC-MAN-002",
+        mainCategory: "security_policy",
+        category: "manual",
+        categoryName: "대응 매뉴얼",
+        title: "개인정보 유출사고 대응매뉴얼",
+        docNo: "HIM-SEC-MAN-002",
+        revision: "Rev.0",
+        driveUrl: "https://drive.google.com/open?id=1yM2xMB6U8jDRsGZXCc0yWxKo00xf4EIf",
+        author: "양신현 (IT기획 담당자)",
+        reviewer: "이건상 (경영기획팀장)",
+        approver: "이춘성 (경영지원본부장/CISO)",
+        date: "2026. 02. 02",
+        summary: "개인정보 유출 시 총괄대응본부 가동, 72시간 이내 규제기관 신고 및 정보주체 개별 통지 절차.",
+        articles: [
+          {
+            chapter: "1. 개요 ~ 4. 서식",
+            number: "1.1 ~ 3.4",
+            title: "CPO 총괄대응본부 가동, 72시간 이내 보호위/KISA 신고 및 통지문 표준 서식",
+            content: "1천명 이상 또는 민감/고유식별정보 유출 시 72시간 내 규제기관 신고 및 정보주체 통지. 담당자(정보보안센터 양신현 차장 02-2012-0063) 안내."
+          }
+        ]
+      },
+      {
+        id: "HIM-SEC-MAN-003",
+        mainCategory: "security_policy",
+        category: "manual",
+        categoryName: "대응 매뉴얼",
+        title: "침해사고 대응매뉴얼",
+        docNo: "HIM-SEC-MAN-003",
+        revision: "Rev.0",
+        driveUrl: "https://drive.google.com/open?id=1bAPv-TRmJlty9o4l-YvGtCu6YOheQ_-x",
+        author: "양신현 (IT기획 담당자)",
+        reviewer: "이건상 (경영기획팀장)",
+        approver: "이춘성 (경영지원본부장/CISO)",
+        date: "2026. 02. 02",
+        summary: "스캐닝, 시스템해킹, 웹 해킹(SQLi, XSS), DDoS, APT, 랜섬웨어 유형별 실무 기술 대응 매뉴얼.",
+        articles: [
+          {
+            chapter: "1. 개요 ~ 4. 유형별 대응",
+            number: "1.1 ~ 4.4",
+            title: "스캐닝, 시스템해킹, 웹해킹, DDoS, APT 및 랜섬웨어 기술 조치",
+            content: "피해 시스템 전원 유지 및 네트워크 케이블 분리, 웹쉘 삭제 및 업로드 실행 차단, KISA 사이버대피소 트래픽 우회 전환."
+          }
+        ]
+      },
+
+      /* ==================== 2. 개인정보보호법 및 시행령 ==================== */
+      {
+        id: "LAW-PIPA-001",
+        mainCategory: "privacy_act",
+        category: "law",
+        categoryName: "개인정보보호 법률",
+        title: "개인정보 보호법 (법률 제21445호)",
+        docNo: "법률 제21445호",
+        revision: "시행 2026. 09. 11.",
+        driveUrl: "https://drive.google.com/drive/folders/1u5HZo02Gai9jY2YTzmVl9BbtAPaEosDG",
+        author: "대한민국 국회 / 개인정보보호위원회",
+        reviewer: "법제처",
+        approver: "대통령",
+        date: "2026. 09. 11",
+        summary: "개인정보의 처리 및 보호에 관한 기본 원칙, 정보주체의 권리, 수집·이용·제공·파기 기준, 안전성 확보조치(제29조), 유출 통지 및 과징금·벌칙(제1조~제76조 전문).",
+        articles: [
+          {
+            chapter: "제1장 총칙",
+            number: "제1조",
+            title: "목적",
+            content: "이 법은 개인정보의 처리 및 보호에 관한 사항을 정함으로써 개인의 자유와 권리를 보호하고, 나아가 개인의 존엄과 가치를 구현함을 목적으로 한다."
+          },
+          {
+            chapter: "제1장 총칙",
+            number: "제2조",
+            title: "정의",
+            content: "이 법에서 사용하는 용어의 뜻은 다음과 같다.\n1. \"개인정보\"란 살아 있는 개인에 관한 정보로서 다음 각 목의 어느 하나에 해당하는 정보를 말한다.\n가. 성명, 주민등록번호 및 영상 등을 통하여 개인을 알아볼 수 있는 정보\n나. 해당 정보만으로는 특정 개인을 알아볼 수 없더라도 다른 정보와 쉽게 결합하여 알아볼 수 있는 정보. 이 경우 쉽게 결합할 수 있는지 여부는 다른 정보의 입수 가능성 등 개인을 알아보는 데 소요되는 시간, 비용, 기술 등을 합리적으로 고려하여야 한다.\n다. 가목 또는 나목을 제1호의2에 따라 가명처리함으로써 원래의 상태로 복원하기 위한 추가 정보의 사용·결합 없이는 특정 개인을 알아볼 수 없는 정보(이하 \"가명정보\"라 한다)\n1의2. \"가명처리\"란 개인정보의 일부를 삭제하거나 일부 또는 전부를 대체하는 등의 방법으로 추가 정보가 없이는 특정 개인을 알아볼 수 없도록 처리하는 것을 말한다.\n2. \"처리\"란 개인정보의 수집, 생성, 연계, 연동, 기록, 저장, 보유, 가공, 편집, 검색, 출력, 정정, 복구, 이용, 제공, 공개, 파기, 그 밖에 이와 유사한 행위를 말한다.\n3. \"정보주체\"란 처리되는 정보에 의하여 알아볼 수 있는 사람으로서 그 정보의 주체가 되는 사람을 말한다.\n4. \"개인정보파일\"이란 개인정보를 쉽게 검색할 수 있도록 일정한 규칙에 따라 체계적으로 배열하거나 구성한 개인정보의 집합물을 말한다.\n5. \"개인정보처리자\"란 업무를 목적으로 개인정보파일을 운용하기 위하여 스스로 또는 다른 사람을 통하여 개인정보를 처리하는 공공기관, 법인, 단체 및 개인 등을 말한다.\n6. \"공공기관\"이란 국회, 법원, 헌법재판소, 중앙선거관리위원회, 중앙행정기관, 지방자치단체 및 대통령령으로 정하는 기관을 말한다.\n7. \"고정형 영상정보처리기기\"란 일정한 공간에 설치되어 지속적 또는 주기적으로 사람 또는 사물의 영상 등을 촬영하거나 이를 유·무선망을 통하여 전송하는 장치로서 대통령령으로 정하는 장치를 말한다.\n7의2. \"이동형 영상정보처리기기\"란 사람이 신체에 착용 또는 휴대하거나 이동 가능한 물체에 부착 또는 거치하여 사람 또는 사물의 영상 등을 촬영하거나 이를 유·무선망을 통하여 전송하는 장치로서 대통령령으로 정하는 장치를 말한다."
+          },
+          {
+            chapter: "제1장 총칙",
+            number: "제3조",
+            title: "개인정보 보호 원칙",
+            content: "① 개인정보처리자는 개인정보의 처리 목적을 명확하게 하여야 하고 그 목적에 필요한 범위에서 최소한의 개인정보만을 적법하고 정당하게 수집하여야 한다.\n② 개인정보처리자는 개인정보의 처리 목적에 필요한 범위에서 적합하게 개인정보를 처리하여야 하며, 그 목적 외의 용도로 활용하여서는 아니 된다.\n③ 개인정보처리자는 개인정보의 처리 목적에 필요한 범위에서 개인정보의 정확성, 완전성 및 최신성이 보장되도록 하여야 한다.\n④ 개인정보처리자는 개인정보의 처리 방법 및 종류 등에 따라 정보주체의 권리가 침해받을 가능성과 그 위험 정도를 고려하여 개인정보를 안전하게 관리하여야 한다.\n⑤ 개인정보처리자는 제30조에 따른 개인정보 처리방침 등 개인정보의 처리에 관한 사항을 공개하여야 하며, 열람청구권 등 정보주체의 권리를 보장하여야 한다.\n⑥ 개인정보처리자는 정보주체의 사생활 침해를 최소화하는 방법으로 개인정보를 처리하여야 한다.\n⑦ 개인정보처리자는 개인정보를 익명 또는 가명으로 처리하여도 개인정보 수집목적을 달성할 수 있는 경우 익명처리가 가능한 경우에는 익명에 의하여, 익명처리로 목적을 달성할 수 없는 경우에는 가명에 의하여 처리될 수 있도록 하여야 한다.\n⑧ 개인정보처리자는 이 법 및 관계 법령에서 규정하고 있는 책임과 의무를 준수하고 실천함으로써 정보주체의 신뢰를 얻기 위하여 노력하여야 한다."
+          },
+          {
+            chapter: "제1장 총칙",
+            number: "제4조 ~ 제6조",
+            title: "정보주체의 권리, 국가 책무 및 다른 법률과의 관계",
+            content: "제4조 (정보주체의 권리): 정보제공받을 권리, 동의 여부 및 범위 선택권, 열람 및 전송요구권, 처리정지·정정·삭제·파기 요구권, 구제받을 권리, 자동화된 결정에 대한 거부·설명요구권.\n제5조 (국가 등의 책무): 사생활 보호 시책 마련 및 14세 미만 아동 보호 시책 수립 의무.\n제6조 (다른 법률과의 관계): 특별한 규정이 있는 경우를 제외하고는 이 법을 우선 적용한다."
+          },
+          {
+            chapter: "제2장 개인정보 보호위원회",
+            number: "제7조 ~ 제14조의2",
+            title: "보호위원회의 위상, 구성, 소관사무 및 심의·의결권",
+            content: "국무총리 소속 중앙행정기관으로 상임위원 2명을 포함한 9명의 위원으로 구성. 기본계획 수립, 법령 개선권고, 침해사고 조사 및 행정처분(시정명령, 과징금, 과태료), 국외이전 중지명령 권한 행사."
+          },
+          {
+            chapter: "제3장 개인정보의 처리",
+            number: "제15조",
+            title: "개인정보의 수집·이용",
+            content: "① 개인정보처리자는 다음 각 호의 어느 하나에 해당하는 경우에는 개인정보를 수집할 수 있으며 그 수집 목적의 범위에서 이용할 수 있다.\n1. 정보주체의 동의를 받은 경우\n2. 법률에 특별한 규정이 있거나 법령상 의무를 준수하기 위하여 불가피한 경우\n3. 공공기관이 법령 등에서 정하는 소관 업무의 수행을 위하여 불가피한 경우\n4. 정보주체와의 계약의 체결 및 이행을 위하여 불가피하게 필요한 경우\n5. 명백히 정보주체 또는 제3자의 급박한 생명, 신체, 재산의 이익을 위하여 필요하다고 인정되는 경우\n6. 개인정보처리자의 정당한 이익을 달성하기 위하여 필요한 경우로서 명백하게 정보주체의 권리보다 우선하는 경우\n② 동의 수수 시 목적, 항목, 보유기간, 동의 거부권 및 불이익 고지 필수.\n③ 당초 목적과 합리적 관련성, 예측가능성, 불이익 유무, 암호화 조치 시 동의 없는 추가 이용 가능."
+          },
+          {
+            chapter: "제3장 개인정보의 처리",
+            number: "제16조 ~ 제20조의2",
+            title: "최소수집 원칙, 제3자 제공, 목적 외 이용 제한 및 통지의무",
+            content: "필요 최소한의 정보만 수집하여야 하며 선택항목 미동의를 이유로 서비스 제공 거부 금지. 목적 외 이용·제공은 엄격히 제한됨. 5만명 이상 민감/고유식별정보 또는 100만명 이상 정보처리자는 수집출처 및 연 1회 이용·제공 내역 통지 의무."
+          },
+          {
+            chapter: "제3장 개인정보의 처리",
+            number: "제21조 ~ 제25조의2",
+            title: "파기, 동의방법, 아동 보호, 민감/고유식별정보 처리 제한 및 영상기기 운영",
+            content: "지체 없이(5일 이내) 복구 불가하게 영구 삭제. 14세 미만 아동은 법정대리인 동의 필수. 주민등록번호 처리는 법령의 구체적 근거 없이는 절대 금지(동의 수집 불가). CCTV 설치 시 안내판 부착 필수 및 녹음 금지. 이동형 영상기기(바디캠, 드론) 촬영 사실 고지 의무."
+          },
+          {
+            chapter: "제4장 개인정보의 안전한 관리",
+            number: "제26조 ~ 제29조",
+            title: "업무위탁, 가명정보 및 안전조치의무 (핵심)",
+            content: "제26조: 위탁 시 문서(계약서) 작성, 수탁자 교육 및 관리감독 필수.\n제28조의2: 통계·과학적 연구 목적 가명정보 처리 허용(특정인 재식별 금지).\n제29조 (안전조치의무): 분실·도난·유출·위조·변조·훼손 방지를 위해 내부관리계획 수립, 접속기록 보관, 암호화 등 기술적·관리적·물리적 조치 이행 의무."
+          },
+          {
+            chapter: "제4장 개인정보의 안전한 관리",
+            number: "제30조 ~ 제34조의2",
+            title: "처리방침 공개, CPO 지정, 유출 통지·신고(72시간) 및 과징금(매출액 3%)",
+            content: "제30조: 처리방침 상시 공개.\n제31조: CPO 지정 의무.\n제34조: 유출 인지 시 72시간 이내 정보주체 통지 및 1천명 이상 유출 시 보호위/KISA 신고.\n제34조의2: 안전조치의무 위반 등으로 유출 발생 시 전사 총 매출액의 3% 이하 과징금 부과."
+          },
+          {
+            chapter: "제5장 정보주체의 권리 보장",
+            number: "제35조 ~ 제39조의2",
+            title: "열람, 전송요구권(마이데이터), 정정·삭제, 자동화결정 거부권 및 손해배상",
+            content: "정보주체의 열람 요구 시 10일 이내 조치. 완전히 자동화된 AI 결정에 대한 거부 및 설명요구권 신설. 유출 시 300만원 이하 법정손해배상 청구 가능."
+          },
+          {
+            chapter: "제6장 ~ 제8장 분쟁조정 및 보칙",
+            number: "제40조 ~ 제70조",
+            title: "분쟁조정위원회, 단체소송 및 금지행위",
+            content: "부정한 수단으로 개인정보 취득 금지, 업무상 지득 비밀 누설 금지, 시정명령 및 이행강제금 부과."
+          },
+          {
+            chapter: "제9장 벌칙",
+            number: "제71조 ~ 제76조",
+            title: "벌칙 및 과태료 (제71조~제76조 전문)",
+            content: "제71조: 안전조치 미이행으로 유출 시, 동의 없는 제3자 제공 시 5년 이하 징역 또는 5천만원 이하 벌금.\n제72조: 미파기, 암호화 미이행 시 3년 이하 징역 또는 3천만원 이하 벌금.\n제74조의2: 법인 양벌규정.\n제75조: 안전조치의무 위반 시 최대 5천만원 이하, 처리방침 미수립·CPO 미지정 시 3천만원 이하 과태료."
+          }
+        ]
+      },
+      {
+        id: "LAW-PIPA-ENFORCE-001",
+        mainCategory: "privacy_act",
+        category: "enforcement",
+        categoryName: "개인정보보호법 시행령",
+        title: "개인정보 보호법 시행령 (대통령령 제36804호)",
+        docNo: "대통령령 제36804호",
+        revision: "시행 2026. 11. 10.",
+        driveUrl: "https://drive.google.com/drive/folders/1u5HZo02Gai9jY2YTzmVl9BbtAPaEosDG",
+        author: "대한민국 정부 / 개인정보보호위원회",
+        reviewer: "법제처",
+        approver: "대통령",
+        date: "2026. 11. 10",
+        summary: "개인정보 보호법의 위임 조항 상세 규정: 안전성 확보 조치(제30조), 영상기기 기준(제3조, 제24조), 수집출처/이용내역 통지(제15조의2, 제15조의3), 파기방법(제16조), 동의방법(제17조) 및 고유식별정보 암호화(제21조의2).",
+        articles: [
+          {
+            chapter: "제1장 총칙",
+            number: "제1조 ~ 제3조",
+            title: "목적, 공공기관 범위 및 영상정보처리기기 구분",
+            content: "CCTV, 네트워크 카메라, 착용형(바디캠), 휴대형(스마트폰), 부착·거치형(드론·차량) 기기의 세부 범위를 규정한다."
+          },
+          {
+            chapter: "제3장 개인정보의 처리",
+            number: "제14조의2 ~ 제17조의2",
+            title: "추가이용 기준, 수집출처/이용내역 통지(연1회), 영구삭제 파기방법 및 아동 동의",
+            content: "제14조의2: 추가이용 판단기준 처리방침 공개 의무.\n제15조의2~3: 5만명 민감정보/100만명 개인정보 처리자 통지 의무.\n제16조: 전자파일 복원 불가 영구 삭제, 종이문서 파쇄·소각.\n제17조의2: 휴대전화 인증 등 법정대리인 동의 확인 방법."
+          },
+          {
+            chapter: "제3장 개인정보의 처리",
+            number: "제18조 ~ 제27조의3",
+            title: "민감/고유식별정보 범위, 주민번호 암호화(제21조의2) 및 영상기기 안내판",
+            content: "유전·범죄·생체정보·인종 민감정보 정의. 주민등록번호, 여권번호, 운전면허번호, 외국인등록번호 고유식별정보 정의. 주민등록번호 내부망/외부망 전자 보관 시 전면 암호화 의무화. CCTV 안내판 필수 기재사항 명시."
+          },
+          {
+            chapter: "제4장 개인정보의 안전한 관리",
+            number: "제28조",
+            title: "개인정보의 처리 업무 위탁 시 조치",
+            content: "위탁 문서 필수 반영 항목: 목적 외 처리 금지, 안전성 확보 조치, 재위탁 제한, 관리현황 점검 및 감독, 손해배상 책임. 수탁자 현황 홈페이지 지속 공개."
+          },
+          {
+            chapter: "제4장 개인정보의 안전한 관리",
+            number: "제30조",
+            title: "개인정보의 안전성 확보 조치 (대통령령 핵심 기준)",
+            content: "개인정보처리자는 법 제29조에 따라 다음 각 호의 기술적·관리적 및 물리적 조치를 하여야 한다.\n1. 개인정보의 안전한 처리를 위한 내부관리계획의 수립 및 시행\n2. 개인정보에 대한 접근 통제 및 접근 권한의 제한 조치:\n가. 개인정보처리시스템에 대한 접근 권한의 부여, 변경, 말소 기준 수립 및 최소한 부여\n나. 권한 부여, 변경, 말소 내역의 기록 보관 (최소 3년 이상 보관)\n다. 일정 시간 미사용 시 자동 로그아웃되는 세션 타임아웃 조치\n3. 개인정보를 안전하게 저장·전송할 수 있는 암호화 기술의 적용:\n가. 비밀번호는 일방향 암호화하여 저장\n나. 고유식별정보, 비밀번호, 생체인식정보, 계좌번호 등은 안전한 암호 알고리즘으로 양방향 암호화하여 저장\n다. 정보통신망을 통하여 송수신할 때에는 전송구간 암호화(SSL/TLS 등) 적용\n4. 접속기록의 보관 및 위조·변조 방지를 위한 조치:\n가. 개인정보취급자가 개인정보처리시스템에 접속한 기록(계정, 접속일시, 접속지, 수행업무 등)을 최소 1년 이상 보관·관리\n나. 5만명 이상의 정보주체에 관하여 개인정보를 처리하거나 민감정보 또는 고유식별정보를 처리하는 시스템은 2년 이상 보관·관리\n다. 접속기록이 위·변조되지 않도록 별도 물리적 매체(WORM 등)에 백업하고, 월 1회 이상 정기적으로 점검\n5. 개인정보에 대한 보안프로그램의 설치 및 갱신 (백신 프로그램 상시 운영, 최신 보안패치 적용)\n6. 개인정보의 안전한 보관을 위한 물리적 조치 (전산실, 자료보관실 등 보호구역 설정, 출입통제 및 시건장치)"
+          },
+          {
+            chapter: "제4장 개인정보의 안전한 관리",
+            number: "제39조 ~ 제40조",
+            title: "유출 통지 및 신고 기준 (72시간 이내)",
+            content: "유출 인지 시 72시간 이내 정보주체 개별 통지(홈페이지 30일 게시 병행 가능). 1천명 이상 유출, 민감/고유식별정보 유출, 외부 불법침입 유출 시 보호위 또는 KISA에 72시간 이내 의무 신고."
+          }
+        ]
+      },
+
+      /* ==================== 3. 정보통신망법 및 시행령 ==================== */
+      {
+        id: "LAW-NET-001",
+        mainCategory: "network_act",
+        category: "law",
+        categoryName: "정보통신망법",
+        title: "정보통신망 이용촉진 및 정보보호 등에 관한 법률",
+        docNo: "법률 제19904호",
+        revision: "최신 개정 전문",
+        driveUrl: "https://drive.google.com/drive/folders/1iXbRBWIPtFN1ETqncybQlJUinKGn-JtX",
+        author: "대한민국 국회 / 과학기술정보통신부",
+        reviewer: "법제처",
+        approver: "대통령",
+        date: "2024. 01. 23",
+        summary: "정보통신망의 안전성과 신뢰성을 확보하기 위한 기본 법률: 기술적·물리적 보호조치, 정보보호 최고책임자(CISO) 지정, 침해사고 통지·신고 및 망 침해행위 금지 규정.",
+        articles: [
+          {
+            chapter: "제1장 총칙",
+            number: "제1조",
+            title: "목적",
+            content: "이 법은 정보통신망의 이용을 촉진하고 정보통신서비스를 이용하는 자의 개인정보를 보호하며 건전하고 안전한 정보통신환경을 조성하여 국민생활의 향상과 공공복리의 증진에 이바지함을 목적으로 한다."
+          },
+          {
+            chapter: "제1장 총칙",
+            number: "제2조",
+            title: "정의",
+            content: "① 이 법에서 사용하는 용어의 뜻은 다음과 같다.\n1. \"정보통신망\"이란 「전기통신사업법」 제2조제2호에 따른 전기통신설비를 이용하거나 전기통신설비와 컴퓨터 및 컴퓨터의 이용기술을 활용하여 정보를 수집·가공·저장·검색·송신 또는 수신하는 정보통신체제를 말한다.\n2. \"정보통신서비스\"란 「전기통신사업법」 제2조제6호에 따른 전기통신역무와 이를 이용하여 정보를 제공하거나 정보의 제공을 매개하는 완결적 서비스를 말한다.\n3. \"정보통신서비스 제공자\"란 「전기통신사업법」 제2조제8호에 따른 전기통신사업자와 영리를 목적으로 전기통신사업자의 전기통신역무를 이용하여 정보를 제공하거나 정보의 제공을 매개하는 자를 말한다.\n4. \"이용자\"란 정보통신서비스 제공자가 제공하는 정보통신서비스를 이용하는 자를 말한다.\n5. \"침해사고\"란 전자적 침해행위로 인하여 정보통신망이나 이와 관련된 정보시스템이 정상적으로 운영되지 못하도록 하는 사태를 말한다."
+          },
+          {
+            chapter: "제1장 총칙",
+            number: "제3조",
+            title: "책무",
+            content: "정보통신서비스 제공자는 안전한 정보통신환경을 조성할 책무를 진다."
+          },
+          {
+            chapter: "제6장 안정성 확보",
+            number: "제45조",
+            title: "정보보호조치 등",
+            content: "① 정보통신서비스 제공자는 정보통신망의 안전성과 정보의 신뢰성을 확보하기 위하여 보안조치·재난대비조치 등 대통령령으로 정하는 기준에 따라 기술적·물리적·관리적 조치를 하여야 한다.\n② 과학기술정보통신부장관은 제1항에 따른 조치의 기준을 정하여 고시하고, 이를 준수하도록 권고할 수 있다."
+          },
+          {
+            chapter: "제6장 안정성 확보",
+            number: "제45조의2",
+            title: "정보보호 사전점검",
+            content: "정보통신망을 신규 구축하거나 시스템 개편 시 보안 취약점 예방을 위한 사전점검을 실시할 수 있다."
+          },
+          {
+            chapter: "제6장 안정성 확보",
+            number: "제45조의3",
+            title: "정보보호 최고책임자(CISO)의 지정 등",
+            content: "① 정보통신서비스 제공자는 시스템 보안 및 안전한 관리를 위하여 임원급의 정보보호 최고책임자(CISO)를 지정하고 과학기술정보통신부장관에게 신고하여야 한다.\n② 일정 규모 이상의 기업 CISO는 타 직무(IT개발·운영 등)를 겸직할 수 없다.\n③ CISO는 정보보호관리체계 수립, 취약점 분석·개선, 침해사고 예방·대응 업무를 총괄한다."
+          },
+          {
+            chapter: "제6장 안정성 확보",
+            number: "제46조 ~ 제47조",
+            title: "집적정보통신시설(IDC) 보호 및 ISMS 인증",
+            content: "IDC 운영자의 물리적·기술적 보호조치 의무 및 일정 매출액/이용자 수 기준 충족 기업의 ISMS 인증 의무화 규정."
+          },
+          {
+            chapter: "제6장 안정성 확보",
+            number: "제48조",
+            title: "정보통신망 침해행위 등의 금지",
+            content: "① 누구든지 정당한 접근권한 없이 또는 허용된 접근권한을 넘어 정보통신망에 침입하여서는 아니 된다.\n② 누구든지 정당한 사유 없이 데이터 또는 프로그램을 훼손·멸실·변경·위조하거나 운용을 방해하는 악성프로그램을 전달 또는 유포하여서는 아니 된다.\n③ 누구든지 대량의 신호 전송 또는 부정한 명령 처리로 정보통신망에 장애를 발생하게 하여서는 아니 된다 (DDoS 등 금지)."
+          },
+          {
+            chapter: "제6장 안정성 확보",
+            number: "제48조의2 ~ 제48조의4",
+            title: "침해사고 대응, 즉시 신고 및 원인 분석",
+            content: "침해사고 발생 시 즉시 과기정통부 또는 KISA에 신고하여야 하며, 접속기록 보존 등 증거를 확보하여야 한다. 민관합동조사단 조사 시 자료제출에 성실히 협조하여야 한다."
+          },
+          {
+            chapter: "제9장 벌칙",
+            number: "제71조 ~ 제76조",
+            title: "벌칙 및 과태료 (전문)",
+            content: "제71조: 불법 침입, 악성프로그램 유포, DDoS 장애 유발 시 5년 이하 징역 또는 5천만원 이하 벌금.\n제73조: 안전조치 미이행으로 서비스 중대한 지장 초래 시 2년 이하 징역 또는 2천만원 이하 벌금.\n제76조: CISO 미지정·미신고, 침해사고 즉시 미신고 시 3천만원 이하 과태료."
+          }
+        ]
+      },
+      {
+        id: "LAW-NET-ENFORCE-001",
+        mainCategory: "network_act",
+        category: "enforcement",
+        categoryName: "정보통신망법 시행령",
+        title: "정보통신망 이용촉진 및 정보보호 등에 관한 법률 시행령",
+        docNo: "대통령령 제33649호",
+        revision: "최신 개정 전문",
+        driveUrl: "https://drive.google.com/drive/folders/1iXbRBWIPtFN1ETqncybQlJUinKGn-JtX",
+        author: "대한민국 정부 / 과학기술정보통신부",
+        reviewer: "법제처",
+        approver: "대통령",
+        date: "2024. 01. 23",
+        summary: "CISO 지정 대상(이용자 10만명 또는 매출 100억원), 90일 이내 신고 의무, 자산 5천억원 이상 CISO 겸직 제한, 기술적·물리적 보호조치 기준 및 침해사고 즉시 신고 절차.",
+        articles: [
+          {
+            chapter: "제1장 총칙",
+            number: "제1조",
+            title: "목적",
+            content: "이 영은 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」에서 위임된 사항과 그 시행에 필요한 사항을 규정함을 목적으로 한다."
+          },
+          {
+            chapter: "제5장 정보통신망의 안정성 확보 등",
+            number: "제36조의6",
+            title: "정보보호 최고책임자의 지정 및 신고 등",
+            content: "① 일일평균 이용자 수 10만명 이상이거나 정보통신서비스 매출액 100억원 이상인 사업자는 CISO를 지정하여야 한다.\n② CISO 지정일로부터 90일 이내에 과학기술정보통신부장관에게 신고하여야 한다."
+          },
+          {
+            chapter: "제5장 정보통신망의 안정성 확보 등",
+            number: "제36조의7",
+            title: "정보보호 최고책임자의 겸직 제한 대상",
+            content: "직전 사업연도 말 자산총액 5천억원 이상이거나 상시 근로자 수 1천명 이상인 정보통신서비스 제공자의 CISO는 IT개발·운영 등 타 직무를 겸직할 수 없다."
+          },
+          {
+            chapter: "제5장 정보통신망의 안정성 확보 등",
+            number: "제36조의8",
+            title: "정보보호조치의 기준",
+            content: "1. 접근권한 관리 및 통제시스템 구축·운영\n2. 접속기록 위·변조 방지 및 최소 1년 이상 보관\n3. 송수신 중요 데이터 암호화\n4. 백신 소프트웨어 설치 및 최신 업데이트\n5. 전산실, 자료보관실 등 물리적 출입통제"
+          },
+          {
+            chapter: "제5장 정보통신망의 안정성 확보 등",
+            number: "제54조",
+            title: "침해사고의 신고 절차",
+            content: "침해사고 발생을 알게 된 때에는 즉시 사고 발생·인지 일시, 관련 시스템, 내용, 원인, 피해 규모, 긴급 조치 내역, 담당자 연락처를 과기정통부 또는 KISA에 신고하여야 한다."
+          }
+        ]
+      }
+    ];
+
+    /* 상태 관리 */
+    let currentMainCategory = "security_policy";
+    let currentCategoryFilter = "all";
+    let currentSelectedDocId = "HIM-SEC-POL-001";
+    let currentChapterFilter = "all";
+    let isAiGenerating = false;
+    let chatHistory = [];
+    let lastGeneratedAnswer = "";
+
+    /* 유틸리티 */
+    function escapeHtml(text) {
+      if (!text) return "";
+      return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById("toastNotification");
+      const msgEl = document.getElementById("toastMessage");
+      msgEl.textContent = message;
+      toast.classList.remove("translate-y-24", "opacity-0");
+      toast.classList.add("translate-y-0", "opacity-100");
+
+      setTimeout(() => {
+        toast.classList.add("translate-y-24", "opacity-0");
+        toast.classList.remove("translate-y-0", "opacity-100");
+      }, 2500);
+    }
+
+    function copyToClipboard(text) {
+      const tempTextArea = document.createElement("textarea");
+      tempTextArea.value = text;
+      tempTextArea.style.position = "fixed";
+      tempTextArea.style.left = "-9999px";
+      tempTextArea.style.top = "0";
+      document.body.appendChild(tempTextArea);
+      tempTextArea.focus();
+      tempTextArea.select();
+      
+      try {
+        const successful = document.execCommand("copy");
+        showToast(successful ? "내용이 클립보드에 복사되었습니다." : "복사에 실패했습니다.");
+      } catch (err) {
+        showToast("복사 중 오류가 발생했습니다.");
+      } finally {
+        document.body.removeChild(tempTextArea);
+      }
+    }
+
+    /* 문서 목록 렌더링 */
+    function renderDocList() {
+      const container = document.getElementById("docListContainer");
+      const searchKeyword = document.getElementById("searchDocInput").value.trim().toLowerCase();
+      const subCatContainer = document.getElementById("subCatContainer");
+
+      if (currentMainCategory === "security_policy") {
+        subCatContainer.classList.remove("hidden");
+      } else {
+        subCatContainer.classList.add("hidden");
+      }
+
+      const filteredDocs = POLICY_DOCUMENTS.filter(doc => {
+        if (doc.mainCategory !== currentMainCategory) return false;
+        if (currentMainCategory === "security_policy" && currentCategoryFilter !== "all") {
+          if (doc.category !== currentCategoryFilter) return false;
+        }
+        if (!searchKeyword) return true;
+
+        const inTitle = doc.title.toLowerCase().includes(searchKeyword);
+        const inDocNo = doc.docNo.toLowerCase().includes(searchKeyword);
+        const inSummary = doc.summary.toLowerCase().includes(searchKeyword);
+        const inArticles = doc.articles.some(art => 
+          art.title.toLowerCase().includes(searchKeyword) || 
+          art.content.toLowerCase().includes(searchKeyword)
+        );
+        return inTitle || inDocNo || inSummary || inArticles;
+      });
+
+      // 문서번호(docNo) 오름차순 정렬 로직 추가
+      filteredDocs.sort((a, b) => {
+        return (a.docNo || "").localeCompare(b.docNo || "", undefined, { numeric: true, sensitivity: 'base' });
+      });
+
+      document.getElementById("docCountBadge").textContent = `총 ${filteredDocs.length}건 문서`;
+      container.innerHTML = "";
+
+      if (filteredDocs.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-10 px-4 text-slate-400">
+            <i class="fa-regular fa-folder-open text-3xl mb-2 text-slate-300"></i>
+            <p class="text-xs">일치하는 문서가 없습니다.</p>
+          </div>
+        `;
+        return;
+      }
+
+      if (currentMainCategory === "security_policy") {
+        const categories = [
+          { key: "policy", label: "최상위 정보보호 정책", icon: "fa-crown", badgeClass: "bg-red-50 text-red-700" },
+          { key: "guideline", label: "분야별 보안지침", icon: "fa-book-bookmark", badgeClass: "bg-emerald-50 text-emerald-700" },
+          { key: "manual", label: "실무 대응 매뉴얼", icon: "fa-triangle-exclamation", badgeClass: "bg-amber-50 text-amber-700" }
+        ];
+
+        categories.forEach(cat => {
+          const catDocs = filteredDocs.filter(d => d.category === cat.key);
+          if (catDocs.length === 0) return;
+
+          const groupEl = document.createElement("div");
+          groupEl.className = "space-y-1.5";
+
+          const titleEl = document.createElement("div");
+          titleEl.className = "px-2 py-1 text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center justify-between";
+          titleEl.innerHTML = `
+            <span class="flex items-center gap-1.5">
+              <i class="fa-solid ${cat.icon} text-slate-400"></i>
+              ${cat.label}
+            </span>
+            <span class="text-[10px] bg-slate-200 text-slate-600 px-1.5 py-0.2 rounded-full">${catDocs.length}</span>
+          `;
+          groupEl.appendChild(titleEl);
+
+          catDocs.forEach(doc => {
+            const isSelected = doc.id === currentSelectedDocId;
+            const itemEl = document.createElement("div");
+            itemEl.onclick = () => selectDocument(doc.id);
+            itemEl.className = `p-2.5 rounded-xl border text-xs cursor-pointer transition-all ${
+              isSelected 
+                ? "bg-red-50/90 border-red-400 shadow-xs ring-1 ring-red-400" 
+                : "bg-white border-slate-200 hover:border-red-300 hover:bg-slate-50/80"
+            }`;
+
+            itemEl.innerHTML = `
+              <div class="flex items-center justify-between gap-1 mb-1">
+                <span class="font-mono text-[10px] px-1.5 py-0.2 rounded bg-slate-100 font-semibold text-slate-600 border border-slate-200">
+                  ${doc.docNo}
+                </span>
+                <span class="text-[10px] px-1.5 py-0.2 rounded ${cat.badgeClass} font-medium border border-slate-200">
+                  ${doc.revision}
+                </span>
+              </div>
+              <h4 class="font-bold text-slate-900 leading-snug line-clamp-1 ${isSelected ? 'text-red-700' : ''}">${doc.title}</h4>
+              <p class="text-[11px] text-slate-500 mt-0.5 line-clamp-1 leading-normal">${doc.summary}</p>
+            `;
+            groupEl.appendChild(itemEl);
+          });
+
+          container.appendChild(groupEl);
+        });
+      } else {
+        // 법령 및 시행령 카드 리스트
+        const groupEl = document.createElement("div");
+        groupEl.className = "space-y-2";
+
+        filteredDocs.forEach(doc => {
+          const isSelected = doc.id === currentSelectedDocId;
+          const isDecree = doc.category === "enforcement";
+
+          const itemEl = document.createElement("div");
+          itemEl.onclick = () => selectDocument(doc.id);
+          itemEl.className = `p-3 rounded-xl border text-xs cursor-pointer transition-all ${
+            isSelected 
+              ? "bg-red-50/90 border-red-400 shadow-xs ring-1 ring-red-400" 
+              : "bg-white border-slate-200 hover:border-red-300 hover:bg-slate-50/80"
+          }`;
+
+          itemEl.innerHTML = `
+            <div class="flex items-center justify-between gap-1 mb-1.5">
+              <span class="font-mono text-[10px] px-2 py-0.5 rounded ${isDecree ? 'bg-amber-50 text-amber-800 border border-amber-200' : 'bg-red-50 text-red-700 border border-red-200'} font-bold">
+                ${doc.docNo}
+              </span>
+              <span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 font-medium">
+                ${doc.revision}
+              </span>
+            </div>
+            <h4 class="font-bold text-slate-900 leading-snug ${isSelected ? 'text-red-700' : ''}">${doc.title}</h4>
+            <p class="text-[11px] text-slate-500 mt-1 leading-normal">${doc.summary}</p>
+            <div class="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400">
+              <span class="font-medium text-red-600"><i class="fa-solid fa-scroll mr-1"></i>조문 ${doc.articles.length}건 전문</span>
+              <span>시행: ${doc.date}</span>
+            </div>
+          `;
+          groupEl.appendChild(itemEl);
+        });
+
+        container.appendChild(groupEl);
+      }
+    }
+
+    /* 문서 선택 및 전문 뷰어 렌더링 */
+    function selectDocument(docId) {
+      currentSelectedDocId = docId;
+      currentChapterFilter = "all";
+
+      renderDocList();
+      renderDocumentPreview();
+
+      // 우측 뷰어 컨테이너 스크롤을 맨 위로 초기화하여 첫 조항부터 깔끔하게 보이도록 조치
+      const container = document.getElementById("previewArticlesContainer");
+      if (container) {
+        container.scrollTop = 0;
+      }
+
+      if (window.innerWidth < 1024) {
+        toggleMobileSidebar(false);
+      }
+    }
+
+    function renderDocumentPreview() {
+      const doc = POLICY_DOCUMENTS.find(d => d.id === currentSelectedDocId);
+      if (!doc) return;
+
+      document.getElementById("previewCategoryBadge").textContent = doc.categoryName;
+      document.getElementById("previewDocNo").textContent = doc.docNo;
+      document.getElementById("previewRev").textContent = doc.revision;
+      document.getElementById("previewTitle").textContent = doc.title;
+      document.getElementById("previewSummary").textContent = doc.summary;
+
+      document.getElementById("previewAuthor").textContent = doc.author;
+      document.getElementById("previewReviewer").textContent = doc.reviewer;
+      document.getElementById("previewApprover").textContent = doc.approver;
+      document.getElementById("previewDate").textContent = doc.date;
+
+      const externalLink = document.getElementById("openDriveExternalLink");
+      if (doc.driveUrl) {
+        externalLink.href = doc.driveUrl;
+        externalLink.classList.remove("hidden");
+      } else {
+        externalLink.classList.add("hidden");
+      }
+
+      const textContainer = document.getElementById("previewArticlesContainer");
+      const articles = doc.articles || [];
+
+      // 장(Chapter) 고유 목록 추출
+      const chapters = [];
+      articles.forEach(art => {
+        const ch = art.chapter || "기타 규정";
+        if (!chapters.includes(ch)) {
+          chapters.push(ch);
+        }
+      });
+
+      document.getElementById("clauseCount").textContent = `${chapters.length}개 장 (전체 ${articles.length}개 조문 상세 조회)`;
+
+      // 상단 카테고리(장) 칩 생성
+      const tabsContainer = document.getElementById("chapterTabsContainer");
+      tabsContainer.innerHTML = "";
+
+      const allBtn = document.createElement("button");
+      allBtn.type = "button";
+      allBtn.setAttribute("data-chapter", "all");
+      allBtn.onclick = () => {
+        textContainer.scrollTo({ top: 0, behavior: 'smooth' });
+        updateActiveChapterTab("all");
+      };
+      allBtn.className = "chapter-tab-btn px-3 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 shrink-0 bg-red-600 text-white shadow-xs";
+      allBtn.innerHTML = `<i class="fa-solid fa-list-ul text-[10px]"></i> 전체 조항 (${articles.length})`;
+      tabsContainer.appendChild(allBtn);
+
+      chapters.forEach(ch => {
+        const count = articles.filter(a => (a.chapter || "기타 규정") === ch).length;
+        const chBtn = document.createElement("button");
+        chBtn.type = "button";
+        chBtn.setAttribute("data-chapter", ch);
+        chBtn.onclick = () => {
+          scrollToChapter(ch);
+          updateActiveChapterTab(ch);
+        };
+        chBtn.className = "chapter-tab-btn px-3 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 shrink-0 bg-white hover:bg-slate-100 text-slate-700 border border-slate-200";
+        chBtn.innerHTML = `<span>${ch}</span><span class="text-[10px] px-1 rounded-full bg-slate-200 text-slate-600">${count}</span>`;
+        tabsContainer.appendChild(chBtn);
+      });
+
+      // 전체 조항 100% 전문 렌더링 (헤더와 함께 상세 카드 형태로 순차 렌더링)
+      textContainer.innerHTML = "";
+
+      if (articles.length === 0) {
+        textContainer.innerHTML = `
+          <div class="text-center py-12 text-slate-400 text-xs bg-white rounded-xl border border-dashed border-slate-200 p-8">
+            <i class="fa-solid fa-file-circle-exclamation text-2xl mb-2 text-slate-300"></i>
+            <p>등록된 상세 조항 내용이 없습니다.</p>
+          </div>
+        `;
+        return;
+      }
+
+      let lastRenderedChapter = null;
+
+      articles.forEach((art, index) => {
+        const ch = art.chapter || "기본 규정";
+
+        if (ch !== lastRenderedChapter) {
+          lastRenderedChapter = ch;
+          const chapterHeaderEl = document.createElement("div");
+          chapterHeaderEl.id = "chapter-section-" + encodeURIComponent(ch);
+          chapterHeaderEl.className = "pt-4 pb-2 sticky top-0 bg-slate-50/95 backdrop-blur-xs z-10 flex items-center justify-between border-b border-red-200/80 mb-3";
+          chapterHeaderEl.innerHTML = `
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-red-600"></span>
+              <h3 class="text-xs md:text-sm font-bold text-slate-900 tracking-tight">${escapeHtml(ch)}</h3>
+            </div>
+            <span class="text-[10px] font-semibold text-red-600 bg-red-50 px-2.5 py-0.5 rounded-full border border-red-200">
+              ${articles.filter(a => (a.chapter || "기본 규정") === ch).length}개 조문
+            </span>
+          `;
+          textContainer.appendChild(chapterHeaderEl);
+        }
+
+        const artEl = document.createElement("div");
+        artEl.className = "p-4 md:p-5 rounded-xl border border-slate-200 bg-white hover:border-red-300 hover:shadow-xs transition-all shadow-2xs group";
+
+        artEl.innerHTML = `
+          <div class="mb-3 border-b border-slate-100 pb-2.5 flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="text-xs font-bold px-2 py-0.5 rounded bg-red-50 text-red-600 border border-red-200 font-mono tracking-wide">${escapeHtml(art.number)}</span>
+              <h4 class="text-sm md:text-base font-bold text-slate-900 group-hover:text-red-600 transition-colors">${escapeHtml(art.title)}</h4>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button type="button" onclick="copyToClipboard('${escapeHtml(art.number)} ${escapeHtml(art.title)}\\n${escapeHtml(art.content).replace(/'/g, "\\'").replace(/\n/g, "\\n")}')" class="opacity-0 group-hover:opacity-100 text-[11px] text-slate-400 hover:text-red-600 transition-all px-2 py-0.5 rounded bg-slate-50 hover:bg-red-50 border border-slate-200 hover:border-red-200 flex items-center gap-1" title="조항 복사">
+                <i class="fa-regular fa-copy"></i>
+                <span class="hidden sm:inline">복사</span>
+              </button>
+              <span class="text-[10px] text-slate-400 font-mono">No. ${index + 1}</span>
+            </div>
+          </div>
+          <div class="text-xs md:text-sm text-slate-800 leading-relaxed font-normal whitespace-pre-line select-text bg-slate-50/50 p-3 rounded-lg border border-slate-100/80">
+            ${escapeHtml(art.content)}
+          </div>
+        `;
+
+        textContainer.appendChild(artEl);
+      });
+    }
+
+    function scrollToChapter(chapterName) {
+      const targetId = "chapter-section-" + encodeURIComponent(chapterName);
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    function updateActiveChapterTab(activeChapter) {
+      currentChapterFilter = activeChapter;
+      document.querySelectorAll(".chapter-tab-btn").forEach(btn => {
+        const ch = btn.getAttribute("data-chapter");
+        const badge = btn.querySelector("span:last-child");
+        if (ch === activeChapter) {
+          btn.className = "chapter-tab-btn px-3 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 shrink-0 bg-red-600 text-white shadow-xs";
+          if (badge) badge.className = "text-[10px] px-1 rounded-full bg-red-800 text-white";
+        } else {
+          btn.className = "chapter-tab-btn px-3 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 shrink-0 bg-white hover:bg-slate-100 text-slate-700 border border-slate-200";
+          if (badge) badge.className = "text-[10px] px-1 rounded-full bg-slate-200 text-slate-600";
+        }
+      });
+    }
+
+    /* AI 챗봇 로직 (Gemini 3 Flash 통합 컨텍스트 조회) */
+    async function handleChatSubmit(e) {
+      if (e) e.preventDefault();
+      if (isAiGenerating) return;
+
+      const inputEl = document.getElementById("chatInput");
+      const query = inputEl.value.trim();
+      if (!query) return;
+
+      appendChatMessage("user", query);
+      inputEl.value = "";
+      inputEl.style.height = "auto";
+
+      isAiGenerating = true;
+      document.getElementById("sendBtn").disabled = true;
+
+      const loadingMsgId = appendLoadingBubble();
+
+      try {
+        const responseText = await callGeminiSecurityBot(query);
+        removeLoadingBubble(loadingMsgId);
+        appendChatMessage("ai", responseText);
+
+        // 조회된 내용에 대해 팝업 모달 띄우기
+        openAiResultModal(query, responseText);
+      } catch (err) {
+        removeLoadingBubble(loadingMsgId);
+        const errMsg = `질문 처리 중 통신 오류가 발생했습니다. 아래 정보보안센터로 직접 문의해 주시기 바랍니다.<br><br><strong>• 정보보안센터 양신현 차장 : 02-2012-0063</strong>`;
+        appendChatMessage("ai", errMsg);
+        openAiResultModal(query, errMsg);
+      } finally {
+        isAiGenerating = false;
+        document.getElementById("sendBtn").disabled = false;
+      }
+    }
+
+    /* AI 분석 결과 팝업 열기/닫기 */
+    function openAiResultModal(question, answerText) {
+      lastGeneratedAnswer = answerText;
+      const modal = document.getElementById("aiResultModal");
+      const questionTitle = document.getElementById("modalQuestionTitle");
+      const contentEl = document.getElementById("aiModalContent");
+
+      questionTitle.textContent = `Q: ${question}`;
+      contentEl.innerHTML = formatAiResponse(answerText);
+
+      modal.classList.remove("hidden");
+    }
+
+    function closeAiResultModal() {
+      const modal = document.getElementById("aiResultModal");
+      modal.classList.add("hidden");
+    }
+
+    async function callGeminiSecurityBot(userQuery) {
+      const policyContext = POLICY_DOCUMENTS.filter(d => d.mainCategory === "security_policy").map(d => {
+        return `[사내보안규정: ${d.title} (${d.docNo})]\n${d.articles.map(a => `${a.number} ${a.title}: ${a.content}`).join("\n")}`;
+      }).join("\n\n");
+
+      const pipaContext = POLICY_DOCUMENTS.filter(d => d.mainCategory === "privacy_act").map(d => {
+        return `[개인정보보호법 및 시행령: ${d.title} (${d.docNo})]\n${d.articles.map(a => `${a.number} ${a.title}: ${a.content}`).join("\n")}`;
+      }).join("\n\n");
+
+      const networkContext = POLICY_DOCUMENTS.filter(d => d.mainCategory === "network_act").map(d => {
+        return `[정보통신망법: ${d.title} (${d.docNo})]\n${d.articles.map(a => `${a.number} ${a.title}: ${a.content}`).join("\n")}`;
+      }).join("\n\n");
+
+      const systemPrompt = `
+당신은 '에이치디씨아이파크몰 주식회사'의 정보보호 및 개인정보보호 통합 AI 어시스턴트입니다.
+
+[전체 데이터베이스]
+=== 1. 사내 정보보안정책 및 지침·매뉴얼 (15종) ===
+${policyContext}
+
+=== 2. 개인정보보호법 및 시행령 (대통령령 제36804호 반영) ===
+${pipaContext}
+
+=== 3. 정보통신망법 및 시행령 ===
+${networkContext}
+
+[답변 작성 필수 형식 규칙]
+사용자의 질문에 대해 반드시 아래와 같이 **3개의 카테고리로 나누어서** 답변을 작성하십시오.
+각 카테고리 내부에서는 여러 조항이 한 줄로 뭉쳐지지 않도록 **각 조항마다 '### [조항명]' 단위로 문단을 분리하고 줄바꿈**을 명확히 주십시오. 세부 항목(①, ②, ③ 또는 1, 2, 3)은 반드시 줄을 바꾸어 불릿(-) 형식으로 작성하십시오.
+
+[HDC아이파크몰 사내 보안정책/지침]
+### 관련 지침명 및 조항 번호 (예: 개인PC보안지침 제4조)
+- 핵심 규정 내용: (구체적 수치, 타임아웃, 예외기준 등)
+- 세부 이행 사항: 
+- 승인권자 및 절차: 
+
+[개인정보보호법 및 시행령]
+### 법률/시행령 조항 (예: 법 제29조 및 시행령 제30조)
+- 법적 기준 및 의무 사항: 
+- 구체적 기술적·관리적 조치: 
+
+[정보통신망법]
+### 정보통신망법 조항 (예: 제45조 또는 제48조)
+- 법적 기준: 
+- 침해사고 또는 정보보호 의무: 
+
+[종합 권고사항 및 실무 조치 기준]
+각 권고사항 항목마다 반드시 한 줄씩 띄우고 아래와 같이 번호형 불릿(- [항목명])으로 실무자가 바로 조치할 수 있도록 명확히 작성하십시오:
+- [즉시 조치 사항] : (현업 담당자가 즉각 이행해야 할 기술적/관리적 행동)
+- [증적 및 기록 관리] : (보관해야 할 로그, 승인 공문, 징구 서약서 및 보존 기간)
+- [정기 점검 및 관리 주기] : (반기/연간 점검 일정 및 이행 방법)
+- 만약 사내 규정에 내용이 명확하지 않거나 부서별 예외 적용 승인이 필요한 경우 또는 추가 상담이 필요한 경우 반드시 아래 문구를 그대로 포함할 것:
+"• 정보보안센터 양신현 차장 02-2012-0063"
+      `;
+
+      const payload = {
+        contents: [
+          ...chatHistory,
+          { role: "user", parts: [{ text: userQuery }] }
+        ],
+        systemInstruction: {
+          parts: [{ text: systemPrompt }]
+        }
+      };
+
+      const apiKey = "";
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+      const res = await fetch(apiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      if (!res.ok) throw new Error("API call failed");
+
+      const data = await res.json();
+      const answer = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (!answer) throw new Error("No answer generated");
+
+      chatHistory.push({ role: "user", parts: [{ text: userQuery }] });
+      chatHistory.push({ role: "model", parts: [{ text: answer }] });
+      if (chatHistory.length > 12) chatHistory = chatHistory.slice(-12);
+
+      return answer;
+    }
+
+    function appendChatMessage(role, text) {
+      const messagesContainer = document.getElementById("chatMessages");
+      const wrapper = document.createElement("div");
+      wrapper.className = "flex gap-2.5 items-start animate-in fade-in duration-150";
+
+      if (role === "user") {
+        wrapper.className += " justify-end";
+        wrapper.innerHTML = `
+          <div class="chat-bubble-user p-2.5 max-w-[85%] text-xs shadow-xs whitespace-pre-wrap leading-relaxed">
+            ${escapeHtml(text)}
+          </div>
+        `;
+      } else {
+        wrapper.innerHTML = `
+          <div class="w-6 h-6 rounded-full bg-red-600 text-white flex items-center justify-center shrink-0 text-[10px] mt-0.5">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <div class="chat-bubble-ai p-3 max-w-[95%] text-xs shadow-2xs text-slate-800 leading-relaxed whitespace-pre-line space-y-2">
+            ${formatAiResponse(text)}
+          </div>
+        `;
+      }
+
+      messagesContainer.appendChild(wrapper);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    function formatAiResponse(text) {
+      let formatted = text
+        .replace(/\[HDC아이파크몰 사내 보안정책\/지침\]/g, `
+          <div class="cat-answer-section cat-tag-policy">
+            <div class="flex items-center justify-between border-b border-red-200/90 pb-2.5 mb-3.5">
+              <div class="font-bold text-red-900 flex items-center gap-2.5 text-sm md:text-base">
+                <span class="w-7 h-7 rounded-lg bg-red-600 text-white flex items-center justify-center text-xs shadow-2xs">
+                  <i class="fa-solid fa-building-shield"></i>
+                </span>
+                <span>HDC아이파크몰 사내 보안정책 및 지침</span>
+              </div>
+              <span class="text-xs font-bold text-red-600 bg-red-50 px-2.5 py-1 rounded-full border border-red-200">
+                사내 규격 기준
+              </span>
+            </div>
+            <div class="text-slate-800 text-xs md:text-sm leading-relaxed space-y-3">
+        `)
+        .replace(/\[개인정보보호법 및 시행령\]/g, `
+            </div>
+          </div>
+          <div class="cat-answer-section cat-tag-pipa">
+            <div class="flex items-center justify-between border-b border-emerald-200/90 pb-2.5 mb-3.5">
+              <div class="font-bold text-emerald-900 flex items-center gap-2.5 text-sm md:text-base">
+                <span class="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center text-xs shadow-2xs">
+                  <i class="fa-solid fa-scale-balanced"></i>
+                </span>
+                <span>개인정보 보호법 및 시행령 (대통령령 제36804호)</span>
+              </div>
+              <span class="text-xs font-bold text-emerald-700 bg-emerald-100/90 px-2.5 py-1 rounded-full border border-emerald-200">
+                법정 의무 기준
+              </span>
+            </div>
+            <div class="text-slate-800 text-xs md:text-sm leading-relaxed space-y-3">
+        `)
+        .replace(/\[정보통신망법\]/g, `
+            </div>
+          </div>
+          <div class="cat-answer-section cat-tag-network">
+            <div class="flex items-center justify-between border-b border-amber-200/90 pb-2.5 mb-3.5">
+              <div class="font-bold text-amber-900 flex items-center gap-2.5 text-sm md:text-base">
+                <span class="w-7 h-7 rounded-lg bg-amber-600 text-white flex items-center justify-center text-xs shadow-2xs">
+                  <i class="fa-solid fa-network-wired"></i>
+                </span>
+                <span>정보통신망 이용촉진 및 정보보호 등에 관한 법률</span>
+              </div>
+              <span class="text-xs font-bold text-amber-700 bg-amber-100/90 px-2.5 py-1 rounded-full border border-amber-200">
+                망 안전성 기준
+              </span>
+            </div>
+            <div class="text-slate-800 text-xs md:text-sm leading-relaxed space-y-3">
+        `)
+        .replace(/\[종합 권고사항 및 실무 조치 기준\]|\[종합 권고사항 및 연락처\]/g, `
+            </div>
+          </div>
+          <div class="mt-6 p-5 rounded-2xl border-2 border-red-200 bg-gradient-to-b from-white via-red-50/20 to-red-50/40 shadow-sm">
+            <div class="flex items-center justify-between border-b border-red-200/80 pb-3 mb-4">
+              <div class="font-bold text-slate-900 flex items-center gap-2.5 text-sm md:text-base">
+                <span class="w-8 h-8 rounded-xl bg-red-600 text-white flex items-center justify-center text-sm shadow-xs">
+                  <i class="fa-solid fa-clipboard-check"></i>
+                </span>
+                <div>
+                  <h4 class="text-slate-900 font-bold leading-tight">종합 권고사항 및 실무 조치 기준</h4>
+                  <span class="text-[11px] text-slate-500 font-normal">법령 준수 및 사내 감사 대비 필수 이행 가이드</span>
+                </div>
+              </div>
+              <span class="text-xs font-bold text-red-600 bg-red-50 px-2.5 py-1 rounded-md border border-red-200 shadow-2xs">
+                실무 체크리스트
+              </span>
+            </div>
+            <div class="recommendation-content text-slate-800 text-xs md:text-sm leading-relaxed space-y-3">
+        `);
+
+      if (formatted.includes('class="cat-answer-section') || formatted.includes('class="mt-6 p-5')) {
+        formatted += `</div></div>`;
+      }
+
+      // 종합 권고사항 내의 불릿(-) 항목들을 칸 구분과 체크 아이콘이 있는 개별 카드로 변환
+      if (formatted.includes('class="recommendation-content')) {
+        const parts = formatted.split('class="recommendation-content text-slate-800 text-xs md:text-sm leading-relaxed space-y-3">');
+        if (parts.length === 2) {
+          let recContent = parts[1];
+          recContent = recContent.replace(/^-\s+(.*?)$/gm, `
+            <div class="action-item-card">
+              <div class="flex items-start gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-red-600 text-white flex items-center justify-center text-[10px] shrink-0 mt-0.5">
+                  <i class="fa-solid fa-check"></i>
+                </span>
+                <div class="text-slate-800 flex-1 leading-relaxed">$1</div>
+              </div>
+            </div>
+          `);
+          formatted = parts[0] + 'class="recommendation-content text-slate-800 text-xs md:text-sm leading-relaxed space-y-3">' + recContent;
+        }
+      }
+
+      // 조항 소제목 (### 조항)을 카드 박스로 감싸 칸 분리 및 가독성 향상
+      formatted = formatted.replace(/###\s*(.*?)(?=\n|$)/g, `
+        <div class="font-bold text-slate-900 text-xs md:text-sm bg-white border border-slate-200 px-3 py-1.5 rounded-lg flex items-center gap-2 shadow-2xs mt-3 mb-1.5 text-slate-900">
+          <span class="w-2 h-2 rounded-full bg-red-600"></span>
+          <span>$1</span>
+        </div>
+      `);
+
+      // 일반 카테고리의 불릿 항목 (-) 가독성 줄바꿈 및 들여쓰기 박스화 (종합 권고사항 카드 외)
+      formatted = formatted.replace(/^-\s+(.*?)$/gm, `
+        <div class="clause-item-line pl-1.5">
+          <span class="text-red-500 font-bold shrink-0 mt-0.5">•</span>
+          <span class="text-slate-700">$1</span>
+        </div>
+      `);
+
+      // 볼드 하이라이트
+      formatted = formatted
+        .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-slate-950 bg-red-50 px-1 py-0.5 rounded border border-red-200/80 text-red-900">$1</strong>')
+        .replace(/• 정보보안센터 양신현 차장 02-2012-0063/g, `
+          <div class="mt-4 p-4 bg-red-50/80 border-2 border-red-200 rounded-xl flex flex-wrap items-center justify-between gap-3 shadow-xs">
+            <div class="flex items-center gap-3 text-red-950 font-bold text-xs md:text-sm">
+              <span class="w-9 h-9 rounded-xl bg-red-600 text-white flex items-center justify-center text-sm shrink-0 shadow-xs">
+                <i class="fa-solid fa-headset"></i>
+              </span>
+              <div>
+                <span class="block text-slate-500 text-[11px] font-medium">실무 승인 및 규정 예외 심의 문의처</span>
+                <span class="text-sm font-extrabold text-red-950">정보보안센터 양신현 차장</span>
+              </div>
+            </div>
+            <a href="tel:02-2012-0063" class="px-4 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition-all shrink-0 flex items-center gap-2 shadow-sm hover:shadow">
+              <i class="fa-solid fa-phone text-xs"></i>
+              <span>02-2012-0063</span>
+            </a>
+          </div>
+        `);
+
+      return formatted;
+    }
+
+    function appendLoadingBubble() {
+      const id = "loading-" + Date.now();
+      const messagesContainer = document.getElementById("chatMessages");
+      const wrapper = document.createElement("div");
+      wrapper.id = id;
+      wrapper.className = "flex gap-2.5 items-start";
+      wrapper.innerHTML = `
+        <div class="w-6 h-6 rounded-full bg-red-600 text-white flex items-center justify-center shrink-0 text-[10px] mt-0.5">
+          <i class="fa-solid fa-robot"></i>
+        </div>
+        <div class="chat-bubble-ai p-3 rounded-xl shadow-2xs text-slate-500 text-xs flex items-center gap-2 border border-slate-200/80">
+          <i class="fa-solid fa-circle-notch fa-spin text-red-600"></i>
+          <span>사내 규정 및 법령 조문을 종합 검토 중입니다...</span>
+        </div>
+      `;
+      messagesContainer.appendChild(wrapper);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      return id;
+    }
+
+    function removeLoadingBubble(id) {
+      const el = document.getElementById(id);
+      if (el) el.remove();
+    }
+
+    function toggleMobileSidebar(open) {
+      const sidebar = document.getElementById("docSidebar");
+      const overlay = document.getElementById("mobileSidebarOverlay");
+      const shouldOpen = open !== undefined ? open : sidebar.classList.contains("-translate-x-full");
+
+      if (shouldOpen) {
+        sidebar.classList.remove("-translate-x-full");
+        overlay.classList.remove("hidden");
+      } else {
+        sidebar.classList.add("-translate-x-full");
+        overlay.classList.add("hidden");
+      }
+    }
+
+    /* ==================== 신규 문서 등록 및 파서 로직 ==================== */
+    function openNewDocModal() {
+      const modal = document.getElementById("newDocModal");
+      modal.classList.remove("hidden");
+      updateParsedCount();
+    }
+
+    function closeNewDocModal() {
+      const modal = document.getElementById("newDocModal");
+      modal.classList.add("hidden");
+    }
+
+    // 본문에서 장(Chapter) 및 조항(Article) 자동 파싱 알고리즘
+    function parseArticlesFromText(rawText) {
+      if (!rawText || !rawText.trim()) return [];
+      
+      const lines = rawText.split(/\r?\n/);
+      const articles = [];
+      let currentChapter = "제1장 총칙";
+      let currentNumber = "";
+      let currentTitle = "";
+      let currentContentLines = [];
+
+      function saveCurrentArticle() {
+        if (currentNumber || currentContentLines.length > 0) {
+          articles.push({
+            chapter: currentChapter,
+            number: currentNumber || `조항 ${articles.length + 1}`,
+            title: currentTitle || (currentContentLines[0] ? currentContentLines[0].substring(0, 30) : "세부 조항"),
+            content: currentContentLines.join("\n").trim()
+          });
+          currentNumber = "";
+          currentTitle = "";
+          currentContentLines = [];
+        }
+      }
+
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (!line) {
+          if (currentContentLines.length > 0) currentContentLines.push("");
+          continue;
+        }
+
+        // 장(Chapter) 패턴: 제O장, 제O절, 제O편, 부칙, 붙임
+        const chapterMatch = line.match(/^(제\s*\d+\s*[장절편]|부\s*칙|\[붙임\s*\d*\])/i);
+        if (chapterMatch && line.length < 40) {
+          saveCurrentArticle();
+          currentChapter = line;
+          continue;
+        }
+
+        // 조항 패턴: 제O조, 제O조의O, 1.1, [제O조]
+        const articleMatch = line.match(/^(?:제\s*(\d+(?:의\d+)?)\s*조(?:\s*\((.*?)\))?|(\d+\.\d+)\s*(.*?)|\[(제\s*\d+조.*?)\])/);
+        if (articleMatch) {
+          saveCurrentArticle();
+          if (articleMatch[1]) {
+            currentNumber = `제${articleMatch[1]}조`;
+            currentTitle = articleMatch[2] || (line.replace(/^제\s*\d+(?:의\d+)?\s*조(?:\s*\(.*?\))?/, '').trim()) || "규정 내용";
+            const remainder = line.replace(/^제\s*\d+(?:의\d+)?\s*조(?:\s*\(.*?\))?/, '').trim();
+            if (remainder && remainder !== currentTitle) {
+              currentContentLines.push(remainder);
+            }
+          } else if (articleMatch[3]) {
+            currentNumber = articleMatch[3];
+            currentTitle = articleMatch[4] || "세부 항목";
+          } else if (articleMatch[5]) {
+            currentNumber = articleMatch[5];
+            currentTitle = "규정 내용";
+          }
+        } else {
+          currentContentLines.push(lines[i]);
+        }
+      }
+
+      saveCurrentArticle();
+
+      // 만약 조항 패턴이 전혀 감지되지 않은 일반 텍스트인 경우 문단 단위로 조항화
+      if (articles.length === 0 && rawText.trim().length > 0) {
+        articles.push({
+          chapter: "제1장 총칙",
+          number: "제1조",
+          title: "본문 내용 전문",
+          content: rawText.trim()
+        });
+      }
+
+      return articles;
+    }
+
+    function updateParsedCount() {
+      const content = document.getElementById("modalDocContent").value;
+      const count = parseArticlesFromText(content).length;
+      document.getElementById("parsedArticlesCount").textContent = `감지된 조항: ${count}개`;
+    }
+
+    // 파일 로드 및 인코딩 다중 감지(UTF-8 / EUC-KR) 처리
+    function handleFileSelection(file) {
+      if (!file) return;
+
+      const fileName = file.name.toLowerCase();
+      // 바이너리 파일 감지 경고
+      if (fileName.endsWith('.docx') || fileName.endsWith('.doc') || 
+          fileName.endsWith('.hwp') || fileName.endsWith('.hwpx') || 
+          fileName.endsWith('.pdf')) {
+        showToast(`[${file.name}] 파일은 바이너리 포맷입니다. 내용을 복사하여 아래 본문란에 붙여넣어주세요.`);
+        document.getElementById("modalDocContent").focus();
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const buffer = evt.target.result;
+        
+        // 1차 UTF-8 디코딩 시도
+        let text = new TextDecoder('utf-8', { fatal: false }).decode(buffer);
+        
+        // 깨짐 문자(0xFFFD, )가 3개 이상 감지되면 EUC-KR / CP949로 재디코딩
+        const replacementCount = (text.match(/\uFFFD/g) || []).length;
+        if (replacementCount > 2) {
+          try {
+            text = new TextDecoder('euc-kr').decode(buffer);
+          } catch (err) {
+            console.warn('EUC-KR 디코딩 에러, UTF-8 유지', err);
+          }
+        }
+
+        // 파일명으로 제목 및 번호 자동 추천
+        const baseName = file.name.replace(/\.[^/.]+$/, "");
+        if (!document.getElementById("modalDocTitle").value) {
+          document.getElementById("modalDocTitle").value = baseName;
+        }
+
+        document.getElementById("modalDocContent").value = text;
+        updateParsedCount();
+        showToast(`'${file.name}' 내용을 성공적으로 불러왔습니다.`);
+      };
+
+      reader.readAsArrayBuffer(file);
+    }
+
+    function handleNewDocSubmit() {
+      const mainCategory = document.getElementById("modalMainCat").value;
+      const subCategory = document.getElementById("modalSubCat").value;
+      const title = document.getElementById("modalDocTitle").value.trim();
+      const docNo = document.getElementById("modalDocNo").value.trim();
+      const author = document.getElementById("modalAuthor").value.trim() || "정보보안 담당자";
+      const reviewer = document.getElementById("modalReviewer").value.trim() || "검토자";
+      const approver = document.getElementById("modalApprover").value.trim() || "CISO";
+      const revision = document.getElementById("modalRevision").value.trim() || "Rev.0";
+      const summary = document.getElementById("modalSummary").value.trim() || `${title}에 관한 상세 규정.`;
+      const rawContent = document.getElementById("modalDocContent").value.trim();
+
+      if (!title || !docNo || !rawContent) {
+        showToast("문서 제목, 문서 번호, 본문 내용을 모두 입력해주세요.");
+        return;
+      }
+
+      const articles = parseArticlesFromText(rawContent);
+
+      const categoryNameMap = {
+        policy: "정보보호 정책",
+        guideline: "정보보호 지침",
+        manual: "실무 대응 매뉴얼",
+        law: "관련 법률",
+        enforcement: "시행령 / 규정"
+      };
+
+      const newDoc = {
+        id: "USER-" + Date.now(),
+        mainCategory: mainCategory,
+        category: subCategory,
+        categoryName: categoryNameMap[subCategory] || "사내 규정",
+        title: title,
+        docNo: docNo,
+        revision: revision,
+        driveUrl: "",
+        author: author,
+        reviewer: reviewer,
+        approver: approver,
+        date: new Date().toISOString().slice(0, 10).replace(/-/g, ". "),
+        summary: summary,
+        articles: articles
+      };
+
+      // 정책 DB 최상단에 추가 (즉시 최신화)
+      POLICY_DOCUMENTS.unshift(newDoc);
+
+      // 모달 닫기 및 폼 초기화
+      closeNewDocModal();
+      document.getElementById("newDocForm").reset();
+
+      // 등록된 대분류로 화면 자동 전환 및 선택
+      currentMainCategory = mainCategory;
+      currentSelectedDocId = newDoc.id;
+
+      // 상단 대분류 탭 스타일 업데이트
+      document.querySelectorAll(".main-cat-btn").forEach(b => {
+        if (b.getAttribute("data-main-cat") === mainCategory) {
+          b.classList.add("bg-white", "text-red-600", "shadow-xs");
+          b.classList.remove("hover:text-slate-900");
+        } else {
+          b.classList.remove("bg-white", "text-red-600", "shadow-xs");
+          b.classList.add("hover:text-slate-900");
+        }
+      });
+
+      renderDocList();
+      renderDocumentPreview();
+      showToast(`'${title}' 문서(조항 ${articles.length}건)가 성공적으로 등록되었습니다.`);
+    }
+
+    /* DOM 초기화 및 이벤트 리스너 바인딩 */
+    document.addEventListener("DOMContentLoaded", () => {
+      // 신규 문서 등록 모달 이벤트
+      document.getElementById("openNewDocModalBtn").addEventListener("click", openNewDocModal);
+      document.getElementById("sidebarNewDocBtn").addEventListener("click", openNewDocModal);
+      document.getElementById("closeNewDocModalBtn").addEventListener("click", closeNewDocModal);
+      document.getElementById("cancelNewDocBtn").addEventListener("click", closeNewDocModal);
+      document.getElementById("submitNewDocBtn").addEventListener("click", handleNewDocSubmit);
+
+      // 파일 첨부 인풋 이벤트
+      document.getElementById("modalFileInput").addEventListener("change", function(e) {
+        if (e.target.files && e.target.files[0]) {
+          handleFileSelection(e.target.files[0]);
+        }
+      });
+
+      // 본문 입력 시 실시간 조항 수 카운팅
+      document.getElementById("modalDocContent").addEventListener("input", updateParsedCount);
+
+      // 1차 대분류 탭 전환
+      document.querySelectorAll(".main-cat-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".main-cat-btn").forEach(b => {
+            b.classList.remove("bg-white", "text-red-600", "shadow-xs");
+            b.classList.add("hover:text-slate-900");
+          });
+          btn.classList.add("bg-white", "text-red-600", "shadow-xs");
+          btn.classList.remove("hover:text-slate-900");
+
+          currentMainCategory = btn.getAttribute("data-main-cat");
+
+          const firstDoc = POLICY_DOCUMENTS.find(d => d.mainCategory === currentMainCategory);
+          if (firstDoc) {
+            currentSelectedDocId = firstDoc.id;
+          }
+
+          renderDocList();
+          renderDocumentPreview();
+        });
+      });
+
+      // 2차 서브 필터 탭 (정보보안정책 전용)
+      document.querySelectorAll(".cat-filter-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".cat-filter-btn").forEach(b => {
+            b.classList.remove("bg-white", "text-red-600", "shadow-xs");
+            b.classList.add("hover:text-slate-900");
+          });
+          btn.classList.add("bg-white", "text-red-600", "shadow-xs");
+          btn.classList.remove("hover:text-slate-900");
+
+          currentCategoryFilter = btn.getAttribute("data-cat");
+          renderDocList();
+        });
+      });
+
+      // 검색창 인풋 이벤트
+      document.getElementById("searchDocInput").addEventListener("input", renderDocList);
+
+      // 필터 리셋 버튼
+      document.getElementById("resetListBtn").addEventListener("click", () => {
+        document.getElementById("searchDocInput").value = "";
+        currentCategoryFilter = "all";
+        document.querySelectorAll(".cat-filter-btn").forEach(b => {
+          if (b.getAttribute("data-cat") === "all") {
+            b.classList.add("bg-white", "text-red-600", "shadow-xs");
+            b.classList.remove("hover:text-slate-900");
+          } else {
+            b.classList.remove("bg-white", "text-red-600", "shadow-xs");
+            b.classList.add("hover:text-slate-900");
+          }
+        });
+        renderDocList();
+      });
+
+      // 개요 복사 버튼
+      document.getElementById("copyDocSummaryBtn").addEventListener("click", () => {
+        const doc = POLICY_DOCUMENTS.find(d => d.id === currentSelectedDocId);
+        if (!doc) return;
+        const text = `[${doc.docNo}] ${doc.title} (${doc.revision})\n작성자: ${doc.author} | 승인자: ${doc.approver} | 시행일: ${doc.date}\n요약: ${doc.summary}`;
+        copyToClipboard(text);
+      });
+
+      // AI 결과 팝업 모달 이벤트
+      document.getElementById("closeAiModalBtn").addEventListener("click", closeAiResultModal);
+      document.getElementById("confirmCloseModalBtn").addEventListener("click", closeAiResultModal);
+      document.getElementById("copyModalResultBtn").addEventListener("click", () => {
+        if (lastGeneratedAnswer) {
+          copyToClipboard(lastGeneratedAnswer);
+        }
+      });
+      document.getElementById("printModalBtn").addEventListener("click", () => {
+        window.print();
+      });
+      document.getElementById("aiResultModal").addEventListener("click", (e) => {
+        if (e.target.id === "aiResultModal") {
+          closeAiResultModal();
+        }
+      });
+
+      // 모바일 사이드바
+      document.getElementById("mobileSidebarToggle").addEventListener("click", () => toggleMobileSidebar());
+      document.getElementById("mobileSidebarOverlay").addEventListener("click", () => toggleMobileSidebar(false));
+
+      // 챗봇 입력 폼
+      document.getElementById("chatForm").addEventListener("submit", handleChatSubmit);
+      document.getElementById("chatInput").addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+          handleChatSubmit();
+        }
+      });
+
+      // 대화 초기화 버튼
+      document.getElementById("clearChatBtn").addEventListener("click", () => {
+        chatHistory = [];
+        const messagesContainer = document.getElementById("chatMessages");
+        messagesContainer.innerHTML = `
+          <div class="flex gap-2.5 items-start">
+            <div class="w-6 h-6 rounded-full bg-red-600 text-white flex items-center justify-center shrink-0 text-[10px] mt-0.5">
+              <i class="fa-solid fa-robot"></i>
+            </div>
+            <div class="chat-bubble-ai p-3.5 shadow-2xs text-slate-800 leading-relaxed max-w-[90%] space-y-2 border border-slate-200/80">
+              <p class="font-bold text-slate-900 flex items-center gap-1.5 text-xs">
+                <i class="fa-solid fa-layer-group text-red-600"></i>
+                <span>통합 정보보안 AI 상담 어시스턴트입니다.</span>
+              </p>
+              <p class="text-slate-600 leading-normal">
+                질문하신 내용은 <strong>① 사내 정보보안정책</strong>, <strong>② 개인정보보호법 및 시행령</strong>, <strong>③ 정보통신망법</strong> 3개 영역을 종합 조회하여 안내해 드립니다.
+              </p>
+              <div class="pt-2 border-t border-slate-100 text-[11px] text-slate-600 bg-red-50/60 p-2.5 rounded-lg border border-red-100">
+                💡 <strong>규정 확인 또는 실무 문의:</strong><br>
+                <span class="text-red-700 font-bold">• 정보보안센터 양신현 차장 02-2012-0063</span>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      // 첫 로딩
+      renderDocList();
+      renderDocumentPreview();
+    });
+  </script>
+</body>
+</html>
